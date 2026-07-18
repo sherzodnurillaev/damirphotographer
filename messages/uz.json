@@ -1,0 +1,86 @@
+{
+      "Emotion": {
+    "title": "Har bir kadr takrorlab bo‘lmaydigan hikoyadir.",
+    "description": "Haqiqiy his-tuyg‘ularni sahnalashtirib bo‘lmaydi. Shuning uchun men samimiy nigohlar, tabassumlar va umr bo‘yi esda qoladigan lahzalarni saqlab qolishga intilaman."
+  },
+    "About": {
+    "title": "Men haqimda",
+    "description": "Mening ismim Damir. Men uchun fotografiya — hayotdagi eng samimiy lahzalarni abadiylashtirish imkoniyatidir. Eng yaxshi suratlar inson o‘zini erkin va qulay his qilganida yaratilishiga ishonaman. Shu sababli har bir fotosessiyada iliq va qulay muhit yarataman, natijada har bir surat tabiiy, samimiy va jonli chiqadi."
+  },
+    "Rating": {
+    "photoshoots": "O‘tkazilgan fotosessiyalar",
+    "experience": "Yillik tajriba",
+    "clients": "Mamnun mijozlar",
+    "rating": "O‘rtacha baho"
+  },
+    "SectionFaq": {
+    "subtitle": "HAQIQIY HIS-TUYG‘ULAR UCHUN",
+    "title": "Fotosessiya kimlar uchun mos?",
+    "description": "Men hatto «Men suratga tushishni bilmayman» degan insonlarga ham kamera oldida o‘zini erkin his qilishga yordam beraman."
+  },
+    "Faq": {
+    "badge": "FAQ",
+    "title": "Ko'p beriladigan savollar",
+    "description": "Birinchi fotosessiya oldidan mijozlarni eng ko'p qiziqtiradigan savollar.",
+
+    "q1": "Men hech qachon professional fotosessiyada qatnashmaganman.",
+    "a1": "Xavotir olmang — men sizni birinchi suhbatdan tayyor suratlargacha bo'lgan barcha bosqichlarda qo'llab-quvvatlayman. Hammasi xotirjam va qulay o'tadi.",
+
+    "q2": "Men o'zimni fotogenik emas deb o'ylayman.",
+    "a2": "Fotogeniklik tug'ma qobiliyat emas. Bu ishonch, yorug'lik va to'g'ri yondashuv natijasidir. Men kamera oldida o'zingizni erkin his qilishingizga yordam beraman.",
+
+    "q3": "Sun'iy pozalarsiz tabiiy suratlar xohlayman.",
+    "a3": "Majburiy tabassumlar yoki sun'iy pozalar yo'q. Faqat samimiy his-tuyg'ular va tabiiy lahzalar.",
+
+    "q4": "Men uchun uslub va estetika muhim.",
+    "a4": "Har bir detal oldindan puxta o'ylab chiqiladi: kiyim, joy, yorug'lik va ishlov berish. Natijada zamonaviy va tabiiy suratlar olasiz.",
+
+    "q5": "Natija menga yoqishiga qanday ishonch hosil qilaman?",
+    "a5": "Fotosessiyadan oldin barcha istaklaringizni batafsil muhokama qilamiz, shuning uchun yakuniy natija kutganingizdek bo'ladi."
+  },
+    "Advantages": {
+    "badge": "Nega aynan men?",
+    "title": "Men bilan ishlashning afzalliklari",
+    "description": "Maqsadim — o'zingizni ishonchli his qilishingiz va uzoq yillar quvonch bag'ishlaydigan suratlarga ega bo'lishingiz.",
+
+    "item1Title": "7 yildan ortiq tajriba",
+    "item1Description": "Tajribam har bir detalni — nigoh, imo-ishora, yorug'lik va kayfiyatni his qilishga yordam beradi.",
+
+    "item2Title": "Maxfiylik kafolati",
+    "item2Description": "Istagingizga ko'ra suratlaringiz internetda e'lon qilinmaydi.",
+
+    "item3Title": "Individual yondashuv",
+    "item3Description": "Shablon bo'yicha ishlamayman. Har bir fotosessiya sizning istaklaringiz asosida yaratiladi.",
+
+    "item4Title": "Qulay muhit",
+    "item4Description": "Fotosessiya davomida o'zingizni erkin va ishonchli his qilishingiz men uchun muhim.",
+
+    "item5Title": "Tayyorgarlikda yordam",
+    "item5Description": "Kiyim, obraz, makiyaj va lokatsiyani tanlashda yordam beraman.",
+
+    "item6Title": "Shaffof narxlar",
+    "item6Description": "Hech qanday yashirin to'lovlar yo'q. Barcha shartlar oldindan kelishiladi."
+  },
+    "Process": {
+    "badge": "STRESSSIZ FOTOSESSIYA",
+    "title": "Fotosessiya qanday o'tadi",
+    "description": "Birinchi suhbatdan tayyor suratlarni olguningizgacha bo'lgan barcha bosqichlar xotirjam va qulay tarzda o'tadi.",
+
+    "step": "Bosqich",
+
+    "item1Title": "Fotosessiyani rejalashtiramiz",
+    "item1Description": "Fotosessiyadan oldin g'oyalaringiz, uslubingiz va kutayotgan natijangizni batafsil muhokama qilamiz.",
+
+    "item2Title": "Obraz va joyni tanlaymiz",
+    "item2Description": "Birgalikda kiyim, aksessuarlar va suratga olish uchun eng mos joyni tanlaymiz.",
+
+    "item3Title": "Fotosessiyani o'tkazamiz",
+    "item3Description": "Siz faqat jarayondan zavqlanasiz. Men esa poza, harakat va kayfiyat bo'yicha yo'l-yo'riq beraman.",
+
+    "item4Title": "Saralash va ishlov berish",
+    "item4Description": "Siz yoqtirgan suratlarni tanlaysiz, men esa ularni tabiiy ko'rinishini saqlagan holda professional tarzda tahrir qilaman.",
+
+    "item5Title": "Tayyor suratlarni olasiz",
+    "item5Description": "Yakuniy suratlar yuqori sifatda shaxsiy onlayn galereya orqali sizga topshiriladi."
+  }
+}

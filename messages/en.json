@@ -1,0 +1,86 @@
+{
+      "Emotion": {
+    "title": "Every frame tells a story that can never be repeated.",
+    "description": "Real emotions cannot be staged. That is why I strive to capture genuine looks, smiles, and moments that will stay with you for a lifetime."
+  },
+    "About": {
+    "title": "About Me",
+    "description": "My name is Damir, and photography is my way of preserving life's most genuine moments. I believe the best photographs are created when people feel natural and comfortable. That is why I always create a relaxed atmosphere during every session, so each photo feels authentic, emotional, and truly alive."
+  },
+    "Rating": {
+    "photoshoots": "Photoshoots Completed",
+    "experience": "Years of Experience",
+    "clients": "Happy Clients",
+    "rating": "Average Rating"
+  },
+    "SectionFaq": {
+    "subtitle": "FOR REAL EMOTIONS",
+    "title": "Who Is This Photoshoot For?",
+    "description": "I help people feel confident in front of the camera, even if they say, “I don't know how to pose.”"
+  },
+    "Faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "description": "Everything clients usually want to know before their first photoshoot.",
+
+    "q1": "I've never had a professional photoshoot before.",
+    "a1": "Don't worry — I'll guide you through every step, from our first conversation to the final edited photos. Everything will be easy, calm, and comfortable.",
+
+    "q2": "I don't think I'm photogenic.",
+    "a2": "Being photogenic isn't something you're born with. It's about trust, lighting, angles, and guidance. I'll help you feel confident in front of the camera.",
+
+    "q3": "I want natural photos without awkward posing.",
+    "a3": "No forced smiles or unnatural poses. Only genuine emotions, relaxed moments, and timeless photographs.",
+
+    "q4": "Style and aesthetics are important to me.",
+    "a4": "Every detail is carefully considered: location, outfit, lighting, and editing. The result is elegant, natural, and uniquely yours.",
+
+    "q5": "How do I know I'll like the final result?",
+    "a5": "Before the session we discuss your ideas, expectations, and style in detail, so you'll know exactly what to expect."
+  },
+    "Advantages": {
+    "badge": "Why Clients Choose Me",
+    "title": "Benefits of Working With Me",
+    "description": "My goal is to make you feel confident and receive photographs you'll love for years to come.",
+
+    "item1Title": "Over 7 Years of Experience",
+    "item1Description": "Experience allows me to notice every detail—your expression, gesture, light, and mood—creating natural photographs.",
+
+    "item2Title": "Complete Privacy",
+    "item2Description": "If you wish, your photographs will never be published online.",
+
+    "item3Title": "Personal Approach",
+    "item3Description": "No templates. Every photoshoot is built around your personality, wishes, and story.",
+
+    "item4Title": "Comfortable Atmosphere",
+    "item4Description": "You are not just a model. My priority is making you feel relaxed and confident during the session.",
+
+    "item5Title": "Preparation Assistance",
+    "item5Description": "I'll help you choose outfits, makeup, accessories, and the perfect location—even if it's your first photoshoot.",
+
+    "item6Title": "Transparent Pricing",
+    "item6Description": "No hidden fees. Everything is discussed in advance so you know exactly what you'll receive."
+  },
+    "Process": {
+    "badge": "STRESS-FREE PHOTO SESSION",
+    "title": "How the Photoshoot Works",
+    "description": "From our first conversation to receiving your final photographs, every step is calm, comfortable, and carefully planned.",
+
+    "step": "Step",
+
+    "item1Title": "We Discuss Your Ideas",
+    "item1Description": "Before the shoot we'll discuss your vision, style, and expectations so everything is perfectly prepared.",
+
+    "item2Title": "Choosing the Outfit & Location",
+    "item2Description": "Together we'll choose outfits, accessories, and the perfect location for your photoshoot.",
+
+    "item3Title": "The Photoshoot",
+    "item3Description": "Relax and enjoy the experience. I'll guide you with poses, expressions, and movement throughout the session.",
+
+    "item4Title": "Selection & Editing",
+    "item4Description": "You choose your favorite images, and I professionally edit them while preserving their natural beauty.",
+
+    "item5Title": "Receive Your Photos",
+    "item5Description": "You'll receive your finished high-resolution photos through a private online gallery within the agreed timeframe."
+  }
+}
