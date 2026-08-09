@@ -15,7 +15,7 @@ export default function Emotion() {
             alt="emotion"
             width={300}
             height={300}
-            className="absolute top-[-30px] left-[-30px] w-[300px] h-[300px] rounded-xl opacity-50 object-cover"
+            className="absolute top-[-20px] left-[-20px] w-[300px] h-[300px] rounded-xl opacity-50 object-cover"
           />
 
           <Image

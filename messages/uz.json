@@ -82,5 +82,54 @@
 
     "item5Title": "Tayyor suratlarni olasiz",
     "item5Description": "Yakuniy suratlar yuqori sifatda shaxsiy onlayn galereya orqali sizga topshiriladi."
+  },
+  "Footer": {
+  "description": "Haqiqiy his-tuyg'ular, muhit va unutilmas lahzalarni yillar davomida saqlab qoluvchi fotograf.",
+  "navigation": "Navigatsiya",
+  "home": "Bosh sahifa",
+  "about": "Men haqimda",
+  "portfolio": "Portfolio",
+  "services": "Xizmatlar",
+  "faq": "FAQ",
+  "contacts": "Kontaktlar",
+  "city": "Moskva",
+  "rights": "Barcha huquqlar himoyalangan.",
+  "developed": "Loyiha muallifi"
+},
+  "Navigation": {
+    "home": "Bosh sahifa",
+    "portfolio": "Portfolio",
+    "services": "Xizmatlar",
+    "reviews": "Sharhlar",
+    "locations": "Lokatsiyalar",
+    "contacts": "Kontaktlar"
+  },
+    "Portfolio": {
+    "family": "Oilaviy",
+    "lovestory": "Love Story",
+    "meeting": "Tadbirlar",
+    "individual": "Yakka",
+    "photoday": "Foto kun",
+    "national": "Milliy liboslar"
+  },
+    "Colors": {
+    "blue": "Ko'k",
+    "red": "Qizil",
+    "green": "Yashil",
+    "pink": "Pushti"
+  },
+    "portfolio": {
+    "showMore": "Ko'proq ko'rsatish"
+  },
+    "contact": {
+    "title": "Bog'lanish",
+    "subtitle": "Fotosessiyangizni muhokama qilish va barcha savollaringizga javob berishdan mamnun bo'laman.",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "phone": "Telefon"
+  },
+    "services": {
+    "price": "Narxi"
   }
+
 }

@@ -47,7 +47,7 @@ export default function Advantages() {
   },
 ];
   return (
-    <section className="bg-[#c1a388] py-24 px-6 text-white">
+    <section className=" py-24 px-6 ">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center max-w-3xl mx-auto">
@@ -75,7 +75,7 @@ export default function Advantages() {
                 className="group rounded-3xl border border-neutral-200 p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgb(93,87,81)] mb-6 transition-transform duration-300 group-hover:scale-110">
-                  <Icon size={28} />
+                  <Icon size={28} className="text-white" />
                 </div>
 
                 <h3 className="text-2xl font-semibold">

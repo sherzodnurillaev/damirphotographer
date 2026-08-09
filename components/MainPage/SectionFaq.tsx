@@ -8,7 +8,7 @@ export default function SectionFaq() {
   const t = useTranslations("SectionFaq");
 
   return (
-    <section>
+    <section className="bg-[#c1a388] text-[#fff] p-[26px]">
       <div className="text-center mt-[50px]">
         <h3 className="text-2xl uppercase tracking-[4px]">
           {t("subtitle")}

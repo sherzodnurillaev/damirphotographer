@@ -1,5 +1,6 @@
 
 import AboutBlock from '@/components/MainPage/AboutBlock';
+import Services from '@/components/MainPage/CardForService';
 import Banner from '@/components/MainPage/FirstBlock';
 import Process from '@/components/MainPage/ProcessSection';
 import Emotion from '@/components/MainPage/SecondBlock';
@@ -12,9 +13,10 @@ export default function Home() {
         <Banner />
         <Emotion />
         <AboutBlock />
-        <SectionFaq />
-        <Advantages />
         <Process />
+        <Services />
+        <Advantages />
+        <SectionFaq />
     </main>
   );
 }

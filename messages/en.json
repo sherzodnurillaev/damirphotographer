@@ -82,5 +82,53 @@
 
     "item5Title": "Receive Your Photos",
     "item5Description": "You'll receive your finished high-resolution photos through a private online gallery within the agreed timeframe."
+  },
+  "Footer": {
+  "description": "Photographer capturing genuine emotions, atmosphere and unforgettable moments that will stay with you for years.",
+  "navigation": "Navigation",
+  "home": "Home",
+  "about": "About",
+  "portfolio": "Portfolio",
+  "services": "Services",
+  "faq": "FAQ",
+  "contacts": "Contacts",
+  "city": "Moscow",
+  "rights": "All rights reserved.",
+  "developed": "Designed & Developed by"
+},
+  "Navigation": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "reviews": "Reviews",
+    "locations": "Locations",
+    "contacts": "Contacts"
+  },
+    "Portfolio": {
+    "family": "Family",
+    "lovestory": "Love Story",
+    "meeting": "Meeting",
+    "individual": "Individual",
+    "photoday": "Photo Day",
+    "national": "National Dress"
+  },
+    "Colors": {
+    "blue": "Blue",
+    "red": "Red",
+    "green": "Green",
+    "pink": "Pink"
+  },
+    "portfolio": {
+    "showMore": "Show more"
+  },
+    "contact": {
+    "title": "Get in Touch",
+    "subtitle": "I'd be happy to discuss your photoshoot and answer any questions.",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "phone": "Phone"
+  },
+  "services": {
+    "price": "Price"
   }
 }

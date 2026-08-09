@@ -1,5 +1,8 @@
 'use client'
 
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+
 import { useState } from "react";
 import ThemeToggle from "../ui/SwitchTheme";
 import { Menu, X } from "lucide-react";
@@ -7,7 +10,35 @@ import { motion, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 
 export default function Header() {
+    const t = useTranslations("Navigation");
   const [open, setOpen] = useState(false);
+
+  const navigation = [
+  {
+    href: "/",
+    label: t("home"),
+  },
+  {
+    href: "/portfolio",
+    label: t("portfolio"),
+  },
+  {
+    href: "/services",
+    label: t("services"),
+  },
+  {
+    href: "/reviews",
+    label: t("reviews"),
+  },
+  {
+    href: "/locations",
+    label: t("locations"),
+  },
+  {
+    href: "/contacts",
+    label: t("contacts"),
+  },
+];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -19,9 +50,15 @@ export default function Header() {
 
         {/* Desktop */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Contact</a>
+            {navigation.map((item) => (
+                <Link
+                    key={item.href}
+                    href={item.href}
+                    className="transition hover:text-neutral-300"
+                >
+                    {item.label}
+                </Link>
+            ))}
           <LanguageSwitcher />
           <ThemeToggle />
         </nav>
@@ -47,9 +84,16 @@ export default function Header() {
       className="md:hidden bg-gray-400 rounded-[6px] my-[10px] border border-black overflow-hidden"
     >
       <nav className="flex flex-col gap-4 p-6">
-        <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Contact</a>
+        {navigation.map((item) => (
+            <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="transition hover:text-neutral-300"
+            >
+                {item.label}
+            </Link>
+        ))}
       </nav>
 
       <LanguageSwitcher />
