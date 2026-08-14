@@ -15,6 +15,7 @@ export default function Emotion() {
             alt="emotion"
             width={300}
             height={300}
+            unoptimized
             className="absolute top-[-20px] left-[-20px] w-[300px] h-[300px] rounded-xl opacity-50 object-cover"
           />
 
@@ -23,6 +24,7 @@ export default function Emotion() {
             alt="emotion"
             width={300}
             height={300}
+            unoptimized
             className="absolute top-0 left-0 w-[300px] h-[300px] rounded-xl object-cover"
           />
         </div>

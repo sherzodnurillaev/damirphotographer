@@ -33,6 +33,7 @@ export default function ServiceCard({
         <Image
           src={service.image}
           alt={service.title[locale]}
+          unoptimized
           fill
           className="
             object-cover

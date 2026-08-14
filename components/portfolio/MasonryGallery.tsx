@@ -102,6 +102,7 @@ export default function MasonryGallery({
                 alt=""
                 width={700}
                 height={1000}
+                unoptimized
                 loading="lazy"
                 className="
                   w-full

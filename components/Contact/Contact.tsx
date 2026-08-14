@@ -6,7 +6,6 @@ import { Phone } from "lucide-react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
-
   const t = useTranslations("contact");
 
   return (
@@ -14,19 +13,22 @@ export default function Contact() {
 
       <div className="grid lg:grid-cols-2 gap-16 items-center">
 
+        {/* Image */}
         <div className="flex justify-center">
 
           <Image
-            src="/damir.jpg"
+            src="/pictures/damir.jpeg"
             alt="Damir Registan"
             width={450}
             height={600}
+            unoptimized
             className="rounded-3xl object-cover shadow-xl"
             priority
           />
 
         </div>
 
+        {/* Contact */}
         <div>
 
           <h1 className="text-4xl lg:text-5xl font-bold">
@@ -39,30 +41,68 @@ export default function Contact() {
 
           <div className="mt-10 space-y-5">
 
+            {/* Phone */}
             <a
               href="tel:+998951380120"
-              className="flex items-center gap-4 text-lg hover:text-primary duration-300"
+              className="
+                flex
+                items-center
+                gap-4
+                text-lg
+                transition
+                duration-300
+                hover:text-primary
+              "
             >
-              <Phone />
-              +998 95 138-01-20
+              <Phone size={24} />
+
+              <span>
+                +998 95 138-01-20
+              </span>
             </a>
 
+            {/* WhatsApp */}
             <a
               href="https://wa.me/998951380120"
               target="_blank"
-              className="flex items-center gap-4 text-lg hover:text-green-600 duration-300"
+              rel="noopener noreferrer"
+              className="
+                flex
+                items-center
+                gap-4
+                text-lg
+                transition
+                duration-300
+                hover:text-green-600
+              "
             >
               <FaWhatsapp size={24} />
-              WhatsApp
+
+              <span>
+                WhatsApp
+              </span>
             </a>
 
+            {/* Instagram */}
             <a
               href="https://instagram.com/damir_registan"
               target="_blank"
-              className="flex items-center gap-4 text-lg hover:text-pink-500 duration-300"
+              rel="noopener noreferrer"
+              className="
+                flex
+                items-center
+                gap-4
+                text-lg
+                transition
+                duration-300
+                hover:text-pink-500
+              "
             >
               <FaInstagram size={24} />
-              @damir_registan
+
+              <span>
+                @damir_registan
+              </span>
             </a>
 
           </div>

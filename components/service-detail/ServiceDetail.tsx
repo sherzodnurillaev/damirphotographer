@@ -43,6 +43,7 @@ export default function ServiceDetail({
             alt={service.title[locale]}
             fill
             className="object-cover"
+            unoptimized
             priority
           />
 

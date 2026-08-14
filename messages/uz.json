@@ -130,6 +130,10 @@
   },
     "services": {
     "price": "Narxi"
+  },
+    "reviews": {
+    "title": "Sharhlar",
+    "subtitle": "Sizning fikringiz biz uchun juda muhim"
   }
 
 }

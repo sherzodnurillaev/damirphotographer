@@ -24,6 +24,7 @@ export default function AboutBlock() {
           className="rounded-2xl"
           src="/about.jpg"
           width={300}
+          unoptimized
           height={300}
           alt="about"
         />

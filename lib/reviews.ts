@@ -1,17 +1,35 @@
+// import { supabase } from "./supabase/client";
+
+// export async function getReviews() {
+//   const { data, error } = await supabase
+//     .from("review_requests")
+//     .select("*")
+//     .order("created_at", {
+//       ascending: false,
+//     });
+
+//   if (error) {
+//     console.error(error);
+//     return [];
+//   }
+
+//   return data;
+// }
+
 import { supabase } from "./supabase/client";
 
 export async function getReviews() {
   const { data, error } = await supabase
-    .from("review_requests")
+    .from("reviews")
     .select("*")
-    .order("created_at", {
-      ascending: false,
-    });
+    .order("created_at", { ascending: false });
 
   if (error) {
-    console.error(error);
-    return [];
+    console.error("GET REVIEWS ERROR:", error);
+    throw new Error(error.message);
   }
 
-  return data;
+  console.log("REVIEWS:", data);
+
+  return data ?? [];
 }

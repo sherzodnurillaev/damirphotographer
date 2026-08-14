@@ -18,6 +18,7 @@ export default function ReviewForm() {
     ru: {
       name: "Ваше имя",
       review: "Ваш отзыв",
+      rating: "Оценка",
       send: "Оставить отзыв",
       sending: "Отправляем...",
       success:
@@ -29,6 +30,7 @@ export default function ReviewForm() {
     en: {
       name: "Your name",
       review: "Your review",
+      rating: "Rating",
       send: "Leave a review",
       sending: "Sending...",
       success:
@@ -40,6 +42,7 @@ export default function ReviewForm() {
     uz: {
       name: "Ismingiz",
       review: "Fikringiz",
+      rating: "Baho",
       send: "Fikr qoldirish",
       sending: "Yuborilmoqda...",
       success:
@@ -97,22 +100,23 @@ export default function ReviewForm() {
     <form
       onSubmit={handleSubmit}
       className="
-        max-w-2xl
         mx-auto
+        max-w-2xl
         rounded-3xl
         border
         border-neutral-200
-        dark:border-neutral-800
         bg-white
-        dark:bg-neutral-900
         p-6
-        md:p-10
         shadow-sm
+        dark:border-neutral-800
+        dark:bg-neutral-900
+        md:p-10
       "
     >
 
+      {/* Name */}
       <div>
-        <label className="block mb-2 font-medium">
+        <label className="mb-2 block font-medium">
           {t.name}
         </label>
 
@@ -127,22 +131,23 @@ export default function ReviewForm() {
             rounded-2xl
             border
             border-neutral-200
-            dark:border-neutral-700
             bg-transparent
             px-5
             py-4
             outline-none
             focus:ring-2
             focus:ring-black
+            dark:border-neutral-700
             dark:focus:ring-white
           "
         />
       </div>
 
+      {/* Rating */}
       <div className="mt-6">
 
-        <label className="block mb-3 font-medium">
-          Оценка
+        <label className="mb-3 block font-medium">
+          {t.rating}
         </label>
 
         <div className="flex gap-2">
@@ -153,9 +158,11 @@ export default function ReviewForm() {
               type="button"
               key={value}
               onClick={() => setRating(value)}
+              aria-label={`${value} ${t.rating}`}
               className={`
                 text-3xl
                 transition
+                hover:scale-110
                 ${
                   value <= rating
                     ? "opacity-100"
@@ -172,9 +179,10 @@ export default function ReviewForm() {
 
       </div>
 
+      {/* Review */}
       <div className="mt-6">
 
-        <label className="block mb-2 font-medium">
+        <label className="mb-2 block font-medium">
           {t.review}
         </label>
 
@@ -186,35 +194,38 @@ export default function ReviewForm() {
           rows={6}
           className="
             w-full
+            resize-none
             rounded-2xl
             border
             border-neutral-200
-            dark:border-neutral-700
             bg-transparent
             px-5
             py-4
             outline-none
-            resize-none
             focus:ring-2
             focus:ring-black
+            dark:border-neutral-700
             dark:focus:ring-white
           "
         />
 
       </div>
 
+      {/* Success */}
       {success && (
         <p className="mt-5 text-green-600">
           {success}
         </p>
       )}
 
+      {/* Error */}
       {error && (
         <p className="mt-5 text-red-500">
           {error}
         </p>
       )}
 
+      {/* Submit */}
       <button
         type="submit"
         disabled={loading}
@@ -223,15 +234,15 @@ export default function ReviewForm() {
           w-full
           rounded-2xl
           bg-black
-          dark:bg-white
-          text-white
-          dark:text-black
           py-4
           font-semibold
+          text-white
           transition
           hover:scale-[1.01]
           active:scale-[0.98]
           disabled:opacity-50
+          dark:bg-white
+          dark:text-black
         "
       >
         {loading ? t.sending : t.send}

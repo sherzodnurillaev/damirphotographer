@@ -28,6 +28,7 @@ export default function SectionFaq() {
           src="/pictures/one.png"
           width={400}
           height={200}
+          unoptimized
           alt="FAQ"
           className="rounded-2xl hidden md:block"
         />

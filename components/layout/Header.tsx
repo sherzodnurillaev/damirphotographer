@@ -31,10 +31,6 @@ export default function Header() {
     label: t("reviews"),
   },
   {
-    href: "/locations",
-    label: t("locations"),
-  },
-  {
     href: "/contacts",
     label: t("contacts"),
   },

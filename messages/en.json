@@ -130,5 +130,9 @@
   },
   "services": {
     "price": "Price"
+  },
+    "reviews": {
+    "title": "Reviews",
+    "subtitle": "Your opinion is very important to us"
   }
 }
