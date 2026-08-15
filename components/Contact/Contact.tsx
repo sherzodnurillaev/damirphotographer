@@ -1,64 +1,198 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Phone } from "lucide-react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaTelegramPlane,
+} from "react-icons/fa";
 
 export default function Contact() {
   const t = useTranslations("contact");
 
   return (
-    <section className="max-w-6xl mx-auto px-5 lg:px-10 py-20">
+    <section
+      className="
+        w-full
+        bg-[#f5f3f0]
+        px-4
+        py-14
 
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+        sm:px-6
+        sm:py-18
 
+        md:px-8
+        md:py-20
+
+        lg:px-10
+        lg:py-28
+
+        dark:bg-neutral-950
+      "
+    >
+      <div
+        className="
+          mx-auto
+          grid
+          w-full
+          max-w-6xl
+          grid-cols-1
+          items-center
+          gap-12
+
+          sm:gap-14
+
+          lg:grid-cols-2
+          lg:gap-20
+        "
+      >
         {/* Image */}
         <div className="flex justify-center">
-
-          <Image
-            src="/pictures/damir.jpeg"
-            alt="Damir Registan"
-            width={450}
-            height={600}
-            unoptimized
-            className="rounded-3xl object-cover shadow-xl"
-            priority
-          />
-
+          <div
+            className="
+              relative
+              w-full
+              max-w-[320px]
+              overflow-hidden
+              rounded-[28px]
+              sm:max-w-[380px]
+              lg:max-w-[450px]
+              lg:rounded-[36px]
+            "
+          >
+            <Image
+              src="/pictures/damir.jpeg"
+              alt="Damir Registan — фотограф"
+              width={450}
+              height={600}
+              unoptimized
+              priority
+              className="
+                h-auto
+                w-full
+                object-cover
+                shadow-xl
+              "
+            />
+          </div>
         </div>
 
         {/* Contact */}
-        <div>
+        <div className="w-full min-w-0">
 
-          <h1 className="text-4xl lg:text-5xl font-bold">
+          {/* Small label */}
+          <span
+            className="
+              text-[11px]
+              font-semibold
+              uppercase
+              tracking-[0.2em]
+              text-[#a08b76]
+
+              sm:text-xs
+            "
+          >
+            Contact
+          </span>
+
+          {/* Title */}
+          <h1
+            className="
+              mt-3
+              text-3xl
+              font-bold
+              tracking-tight
+              leading-[1.1]
+
+              sm:text-4xl
+
+              lg:text-5xl
+              xl:text-6xl
+
+              text-neutral-900
+              dark:text-white
+            "
+          >
             Damir Registan
           </h1>
 
-          <p className="mt-6 text-lg text-neutral-500 leading-8">
+          {/* Description */}
+          <p
+            className="
+              mt-5
+              max-w-xl
+              text-base
+              leading-7
+              text-neutral-600
+
+              sm:mt-6
+              sm:text-lg
+              sm:leading-8
+
+              dark:text-neutral-400
+            "
+          >
             {t("subtitle")}
           </p>
 
-          <div className="mt-10 space-y-5">
+          {/* Contact links */}
+          <div
+            className="
+              mt-8
+              space-y-2
+
+              sm:mt-10
+              sm:space-y-3
+            "
+          >
 
             {/* Phone */}
             <a
               href="tel:+998951380120"
               className="
+                group
                 flex
+                min-h-[54px]
+                w-full
                 items-center
                 gap-4
-                text-lg
-                transition
+                rounded-2xl
+                px-3
+
+                text-base
+                text-[#a08b76]
+
+                transition-all
                 duration-300
-                hover:text-primary
+
+                hover:bg-white
+                hover:text-[#8b735d]
+
+                sm:min-h-[58px]
+                sm:px-4
+                sm:text-lg
+
+                dark:text-[#c1a388]
+                dark:hover:bg-neutral-900
+                dark:hover:text-[#d2b99e]
               "
             >
-              <Phone size={24} />
+              <Phone
+                size={22}
+                className="
+                  shrink-0
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
 
-              <span>
-                +998 95 138-01-20
-              </span>
+                  sm:h-6
+                  sm:w-6
+                "
+              />
+
+              <span>+998 95 138-01-20</span>
             </a>
 
             {/* WhatsApp */}
@@ -67,20 +201,157 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="
+                group
                 flex
+                min-h-[54px]
+                w-full
                 items-center
                 gap-4
-                text-lg
-                transition
+                rounded-2xl
+                px-3
+
+                text-base
+                text-green-600
+
+                transition-all
                 duration-300
+
+                hover:bg-white
                 hover:text-green-600
+
+                sm:min-h-[58px]
+                sm:px-4
+                sm:text-lg
+
+                dark:text-green-500
+                dark:hover:bg-neutral-900
               "
             >
-              <FaWhatsapp size={24} />
+              <FaWhatsapp
+                size={22}
+                className="
+                  shrink-0
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
 
-              <span>
-                WhatsApp
+                  sm:h-6
+                  sm:w-6
+                "
+              />
+
+              <span>WhatsApp</span>
+            </a>
+
+            {/* Telegram */}
+            <a
+              href="https://t.me/damir_registan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group
+                flex
+                min-h-[54px]
+                w-full
+                items-center
+                gap-4
+                rounded-2xl
+                px-3
+
+                text-base
+                text-sky-500
+
+                transition-all
+                duration-300
+
+                hover:bg-white
+                hover:text-sky-500
+
+                sm:min-h-[58px]
+                sm:px-4
+                sm:text-lg
+
+                dark:text-sky-400
+                dark:hover:bg-neutral-900
+              "
+            >
+              <FaTelegramPlane
+                size={22}
+                className="
+                  shrink-0
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+
+                  sm:h-6
+                  sm:w-6
+                "
+              />
+
+              <span>Telegram</span>
+            </a>
+
+            {/* MAX */}
+            <a
+              href="https://max.ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group
+                flex
+                min-h-[54px]
+                w-full
+                items-center
+                gap-4
+                rounded-2xl
+                px-3
+
+                text-base
+                text-purple-500
+
+                transition-all
+                duration-300
+
+                hover:bg-white
+                hover:text-purple-500
+
+                sm:min-h-[58px]
+                sm:px-4
+                sm:text-lg
+
+                dark:text-purple-400
+                dark:hover:bg-neutral-900
+              "
+            >
+              <span
+                className="
+                  flex
+                  h-[22px]
+                  w-[22px]
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-md
+                  bg-black
+                  text-[11px]
+                  font-bold
+                  text-white
+
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+
+                  dark:bg-white
+                  dark:text-black
+
+                  sm:h-6
+                  sm:w-6
+                "
+              >
+                M
               </span>
+
+              <span>MAX</span>
             </a>
 
             {/* Instagram */}
@@ -89,28 +360,51 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="
+                group
                 flex
+                min-h-[54px]
+                w-full
                 items-center
                 gap-4
-                text-lg
-                transition
+                rounded-2xl
+                px-3
+
+                text-base
+                text-pink-500
+
+                transition-all
                 duration-300
+
+                hover:bg-white
                 hover:text-pink-500
+
+                sm:min-h-[58px]
+                sm:px-4
+                sm:text-lg
+
+                dark:text-pink-400
+                dark:hover:bg-neutral-900
               "
             >
-              <FaInstagram size={24} />
+              <FaInstagram
+                size={22}
+                className="
+                  shrink-0
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
 
-              <span>
-                @damir_registan
-              </span>
+                  sm:h-6
+                  sm:w-6
+                "
+              />
+
+              <span>@damir_registan</span>
             </a>
 
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

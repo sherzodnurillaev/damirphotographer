@@ -7,39 +7,41 @@ import {
   getGalleryByCategory,
 } from "@/lib/services";
 
-import MasonryGallery from "@/components/portfolio/MasonryGallery";
-
-
-
 interface Props {
   params: Promise<{
     locale: string;
     category: string;
   }>;
-    service: any;
-  packages: any[];
-  gallery: any[];
 }
 
 export default async function ServicePage({ params }: Props) {
-    const { category } = await params;
+  const { category } = await params;
 
-    const service = await getServiceByCategory(category);
-    const gallery = await getGalleryByCategory(category);
+  const service = await getServiceByCategory(category);
 
-    if (!service) {
+  if (!service) {
     notFound();
-    }
+  }
 
-    const packages = await getPackages(category);
+  const packages = await getPackages(category);
+  const gallery = await getGalleryByCategory(category);
 
   return (
-    <main className="mt-[100px]">
-        <ServiceDetail
-            service={service}
-            packages={packages}
-            gallery={gallery}
-        />
+    <main
+      className="
+        mt-[70px]
+        min-h-screen
+        w-full
+        overflow-hidden
+        sm:mt-[80px]
+        md:mt-[100px]
+      "
+    >
+      <ServiceDetail
+        service={service}
+        packages={packages}
+        gallery={gallery}
+      />
     </main>
   );
 }

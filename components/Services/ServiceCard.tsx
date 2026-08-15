@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -11,30 +11,48 @@ export default function ServiceCard({
 }: {
   service: Service;
 }) {
-    const locale = useLocale() as "ru" | "en" | "uz";
-
-    const t = useTranslations("services");
+  const locale = useLocale() as "ru" | "en" | "uz";
+  const t = useTranslations("services");
 
   return (
-    <div className="
+    <div
+      className="
         group
+        w-full
+        min-w-0
         overflow-hidden
-        rounded-3xl
+        rounded-2xl
         bg-white
-        dark:bg-neutral-900
         shadow-sm
-        hover:shadow-2xl
         transition-all
         duration-500
-    ">
-
-      <div className="relative h-[320px] overflow-hidden">
-
+        hover:shadow-2xl
+        dark:bg-neutral-900
+        sm:rounded-3xl
+      "
+    >
+      {/* Фото */}
+      <div
+        className="
+          relative
+          h-[180px]
+          overflow-hidden
+          sm:h-[240px]
+          md:h-[280px]
+          lg:h-[320px]
+        "
+      >
         <Image
           src={service.image}
           alt={service.title[locale]}
           unoptimized
           fill
+          sizes="
+            (max-width: 640px) 50vw,
+            (max-width: 768px) 50vw,
+            (max-width: 1024px) 50vw,
+            33vw
+          "
           className="
             object-cover
             transition-transform
@@ -42,65 +60,171 @@ export default function ServiceCard({
             group-hover:scale-110
           "
         />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition" />
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-black/20
+            transition
+            group-hover:bg-black/35
+          "
+        />
       </div>
 
-      <div className="p-6 ">
+      {/* Контент */}
+      <div
+        className="
+          p-3
+          sm:p-5
+          md:p-6
+        "
+      >
+        {/* Заголовок */}
+        <h3
+          className="
+            font-[var(--font-cormorant)]
+            text-base
+            font-semibold
+            leading-tight
+            text-neutral-900
+            sm:text-xl
+            md:text-2xl
+            dark:text-white
+          "
+        >
+          {service.title[locale]}
+        </h3>
 
-          <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white">
-    {service.title[locale]}
-  </h3>
-
-  <p className="mt-3 text-neutral-600 dark:text-neutral-400 leading-7">
-    {service.short_description[locale]}
-  </p>
-
-  <div className="mt-5 flex items-center justify-between">
-
-    <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
-      <Clock3 size={18} />
-      <span>{service.duration[locale]}</span>
-    </div>
-
-    {/* <span className="text-lg font-semibold text-neutral-900 dark:text-white">
-      ${service.price}
-    </span> */}
-    <div className="text-right">
-
-        <p className="text-xs text-neutral-500 dark:text-neutral-400">
-            {t("price")}
+        {/* Описание */}
+        <p
+          className="
+            mt-2
+            font-[var(--font-manrope)]
+            line-clamp-3
+            text-xs
+            leading-5
+            text-neutral-600
+            sm:mt-3
+            sm:text-sm
+            sm:leading-6
+            md:text-base
+            md:leading-7
+            dark:text-neutral-400
+          "
+        >
+          {service.short_description[locale]}
         </p>
 
-        <p className="text-lg md:text-xl font-bold text-neutral-900 dark:text-white whitespace-nowrap">
-            ${service.priceLow} – ${service.priceTop}
-        </p>
-
-    </div>
-
-  </div>
-
-        <Link
-            href={`/${locale}/services/${service.category}`}
+        {/* Информация */}
+        <div
+          className="
+            mt-4
+            flex
+            flex-col
+            gap-3
+            sm:mt-5
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
+          {/* Длительность */}
+          <div
             className="
-                mt-6
-                flex
-                items-center
-                gap-2
-                font-medium
-                group/button
+              flex
+              min-w-0
+              items-center
+              gap-1.5
+              font-[var(--font-manrope)]
+              text-xs
+              text-neutral-600
+              sm:gap-2
+              sm:text-sm
+              dark:text-neutral-400
             "
+          >
+            <Clock3
+              size={16}
+              className="shrink-0 sm:h-[18px] sm:w-[18px]"
+            />
+
+            <span className="truncate">
+              {service.duration[locale]}
+            </span>
+          </div>
+
+          {/* Цена */}
+          <div className="min-w-0 text-left sm:text-right">
+            <p
+              className="
+                font-[var(--font-manrope)]
+                text-[10px]
+                text-neutral-500
+                sm:text-xs
+                dark:text-neutral-400
+              "
+            >
+              {t("price")}
+            </p>
+
+            <p
+              className="
+                font-[var(--font-cormorant)]
+                text-sm
+                font-bold
+                text-neutral-900
+                sm:text-base
+                md:text-xl
+                dark:text-white
+              "
+            >
+              ${service.priceLow} – ${service.priceTop}
+            </p>
+          </div>
+        </div>
+
+        {/* Кнопка */}
+        <Link
+          href={`/${locale}/services/${service.category}`}
+          className="
+            mt-4
+            flex
+            items-center
+            justify-center
+            gap-1.5
+            rounded-xl
+            border
+            border-neutral-200
+            px-3
+            py-2.5
+            font-[var(--font-manrope)]
+            text-xs
+            font-medium
+            transition
+            hover:bg-neutral-100
+            sm:mt-6
+            sm:justify-start
+            sm:border-0
+            sm:px-0
+            sm:py-0
+            sm:text-sm
+            dark:border-neutral-700
+            dark:hover:bg-neutral-800
+            sm:dark:hover:bg-transparent
+          "
         >
           Подробнее
 
           <ArrowRight
-            size={18}
-            className="transition group-hover/button:translate-x-1"
+            size={16}
+            className="
+              transition-transform
+              group-hover/button:translate-x-1
+            "
           />
-
         </Link>
-
       </div>
-
     </div>
   );
 }

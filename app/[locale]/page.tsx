@@ -18,7 +18,7 @@ export default function Home() {
         <Process />
         <Services />
         <Advantages />
-        <SectionFaq />
+        {/* <SectionFaq /> */}
     </main>
   );
 }

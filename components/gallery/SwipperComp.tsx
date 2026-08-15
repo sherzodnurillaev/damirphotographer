@@ -6,12 +6,7 @@ export default async function SwipperPage() {
 
   return (
     <main>
-      {/* твои существующие компоненты */}
-      <h1>frfrfrfr</h1>
-
       <GallerySlider images={images} />
-
-      {/* остальные компоненты */}
     </main>
   );
 }

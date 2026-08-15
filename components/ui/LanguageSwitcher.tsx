@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useLocale } from 'next-intl';
-import { Languages } from 'lucide-react';
+import { useLocale } from "next-intl";
+import { Languages } from "lucide-react";
 import { routing } from "@/i18n/routing";
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 const locales: {
   code: (typeof routing.locales)[number];
@@ -32,34 +32,92 @@ export default function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
 
-const changeLocale = (newLocale: (typeof routing.locales)[number]) => {
-  router.replace(pathname, {
-    locale: newLocale,
-  });
-};
-
+  const changeLocale = (
+    newLocale: (typeof routing.locales)[number]
+  ) => {
+    router.replace(pathname, {
+      locale: newLocale,
+    });
+  };
 
   return (
-    <div className="flex items-center gap-2 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 p-1">
-      <Languages size={18} className="ml-2 text-neutral-500" />
+    <div
+      className="
+        flex
+        items-center
+        gap-1
+        rounded-full
+        border
+        border-white/20
+        bg-black/20
+        p-1
+        backdrop-blur-md
 
-      {locales.map((item) => (
-        <button
-          key={item.code}
-          onClick={() => changeLocale(item.code)}
-          className={`
-            px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300
-            ${
-              locale === item.code
-                ? 'bg-[rgb(93,87,81)] text-white'
-                : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'
-            }
-          `}
-        >
-          <span className="mr-1">{item.flag}</span>
-          {item.label}
-        </button>
-      ))}
+        dark:border-white/10
+        dark:bg-white/5
+      "
+    >
+      {/* Icon */}
+      <div
+        className="
+          flex
+          h-8
+          w-8
+          items-center
+          justify-center
+          text-white/70
+        "
+      >
+        <Languages
+          size={16}
+          strokeWidth={1.5}
+        />
+      </div>
+
+      {/* Languages */}
+      {locales.map((item) => {
+        const active = locale === item.code;
+
+        return (
+          <button
+            key={item.code}
+            type="button"
+            onClick={() => changeLocale(item.code)}
+            className={`
+              relative
+              flex
+              items-center
+              gap-1.5
+              rounded-full
+              px-3
+              py-1.5
+              font-[var(--font-manrope)]
+              text-[11px]
+              font-medium
+              tracking-[0.08em]
+              transition-all
+              duration-300
+
+              ${
+                active
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-white/70 hover:bg-white/10 hover:text-white"
+              }
+            `}
+          >
+            <span
+              className="
+                text-xs
+                leading-none
+              "
+            >
+              {item.flag}
+            </span>
+
+            {item.label}
+          </button>
+        );
+      })}
     </div>
   );
 }

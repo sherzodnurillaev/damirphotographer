@@ -1,11 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/effect-fade";
+import { useEffect, useState } from "react";
 
 interface GalleryImage {
   id: number | string;
@@ -18,132 +14,246 @@ interface Props {
 }
 
 export default function GallerySlider({ images }: Props) {
-  if (!images || images.length === 0) {
+  const [positions, setPositions] = useState<GalleryImage[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Первые 6 фотографий
+  useEffect(() => {
+    if (!images || images.length === 0) {
+      setPositions([]);
+      return;
+    }
+
+    setPositions(images.slice(0, 6));
+    setCurrentIndex(0);
+  }, [images]);
+
+  // Меняем одну фотографию каждые 2.5 секунды
+  useEffect(() => {
+    if (!images || images.length <= 6) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setPositions((current) => {
+        if (current.length === 0) {
+          return current;
+        }
+
+        const next = [...current];
+
+        const position = currentIndex % 6;
+
+        const nextImage =
+          images[6 + currentIndex];
+
+        if (nextImage) {
+          next[position] = nextImage;
+        }
+
+        return next;
+      });
+
+      setCurrentIndex((prev) => {
+        const availableImages = images.length - 6;
+
+        if (availableImages <= 0) {
+          return 0;
+        }
+
+        return (prev + 1) % availableImages;
+      });
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [images, currentIndex]);
+
+  if (!positions.length) {
     return null;
   }
 
-  // Разбиваем фотографии на группы по 4
-  const slides: GalleryImage[][] = [];
-
-  for (let i = 0; i < images.length; i += 4) {
-    slides.push(images.slice(i, i + 4));
-  }
-
   return (
-    <section className="w-full px-5 py-20 lg:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section
+      className="
+        w-full
+        py-10
 
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          effect="fade"
-          fadeEffect={{
-            crossFade: true,
-          }}
-          slidesPerView={1}
-          loop={slides.length > 1}
-          speed={1800}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          allowTouchMove={false}
-          className="w-full"
-        >
-          {slides.map((slide, slideIndex) => (
-            <SwiperSlide key={slideIndex}>
+        sm:py-14
 
-              {/* DESKTOP */}
-              <div className="hidden lg:block">
+        lg:py-20
+      "
+    >
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-7xl
 
-                {/* 3 картинки сверху */}
-                <div className="grid grid-cols-3 gap-6">
+          px-2
+          sm:px-5
+          lg:px-10
+        "
+      >
 
-                  {slide.slice(0, 3).map((item) => (
-                    <GalleryCard
-                      key={item.id}
-                      item={item}
-                    />
-                  ))}
+        {/* DESKTOP */}
 
-                </div>
-
-                {/* 1 картинка снизу */}
-                {slide[3] && (
-                  <div className="mt-6 flex justify-center">
-                    <div className="w-1/3">
-                      <GalleryCard item={slide[3]} />
-                    </div>
-                  </div>
-                )}
-
-              </div>
-
-              {/* TABLET */}
-              <div className="hidden sm:grid lg:hidden grid-cols-2 gap-5">
-
-                {slide.map((item) => (
-                  <GalleryCard
-                    key={item.id}
-                    item={item}
-                  />
-                ))}
-
-              </div>
-
-              {/* MOBILE */}
-              <div className="grid sm:hidden grid-cols-1 gap-5">
-
-                {slide.slice(0, 2).map((item) => (
-                  <GalleryCard
-                    key={item.id}
-                    item={item}
-                  />
-                ))}
-
-              </div>
-
-            </SwiperSlide>
+        <div className="hidden lg:grid grid-cols-3 gap-5">
+          {positions.map((item, index) => (
+            <GalleryCard
+              key={index}
+              item={item}
+            />
           ))}
-        </Swiper>
+        </div>
+
+
+        {/* TABLET */}
+
+        <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4">
+          {positions.map((item, index) => (
+            <GalleryCard
+              key={index}
+              item={item}
+            />
+          ))}
+        </div>
+
+
+        {/* MOBILE */}
+
+        <div
+          className="
+            grid
+            grid-cols-2
+            gap-1.5
+
+            sm:hidden
+          "
+        >
+          {positions.map((item, index) => (
+            <GalleryCard
+              key={index}
+              item={item}
+            />
+          ))}
+        </div>
 
       </div>
     </section>
   );
 }
 
+
+/* =====================================================
+   GALLERY CARD
+===================================================== */
+
 function GalleryCard({
   item,
 }: {
   item: GalleryImage;
 }) {
+  const [currentImage, setCurrentImage] =
+    useState(item.image);
+
+  const [nextImage, setNextImage] =
+    useState<string | null>(null);
+
+  const [isFading, setIsFading] =
+    useState(false);
+
+  useEffect(() => {
+    if (item.image === currentImage) {
+      return;
+    }
+
+    setNextImage(item.image);
+
+    requestAnimationFrame(() => {
+      setIsFading(true);
+    });
+
+    const timeout = setTimeout(() => {
+      setCurrentImage(item.image);
+      setNextImage(null);
+      setIsFading(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [item.image, currentImage]);
+
   return (
     <div
       className="
         relative
-        aspect-[4/5]
+        aspect-[4/3]
         overflow-hidden
-        rounded-[28px]
+
+        rounded-[4px]
+        sm:rounded-xl
+        lg:rounded-2xl
+
         bg-neutral-100
-        unoptimized
         dark:bg-neutral-900
       "
     >
+
+      {/* Current */}
+
       <Image
-        src={item.image}
-        alt={item.alt ?? "Damir Registan photography"}
+        src={currentImage}
+        alt={
+          item.alt ??
+          "Damir Registan photography"
+        }
         fill
+        unoptimized
         sizes="
-          (max-width: 640px) 100vw,
+          (max-width: 640px) 50vw,
           (max-width: 1024px) 50vw,
           33vw
         "
         className="
           object-cover
-          transition-transform
-          duration-1000
-          hover:scale-105
         "
       />
+
+
+      {/* Next */}
+
+      {nextImage && (
+        <Image
+          src={nextImage}
+          alt={
+            item.alt ??
+            "Damir Registan photography"
+          }
+          fill
+          unoptimized
+          sizes="
+            (max-width: 640px) 50vw,
+            (max-width: 1024px) 50vw,
+            33vw
+          "
+          className={`
+            absolute
+            inset-0
+            object-cover
+            transition-opacity
+            duration-[2000ms]
+            ease-in-out
+
+            ${
+              isFading
+                ? "opacity-100"
+                : "opacity-0"
+            }
+          `}
+        />
+      )}
+
     </div>
   );
 }

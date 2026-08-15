@@ -2,7 +2,7 @@ import MainColorPage from "@/components/portfolio/MainColorPage";
 
 export default function PortfolioPage() {
   return (
-    <main className="mt-[120px]">
+    <main className="mt-[50px]">
       <MainColorPage />
     </main>
   );

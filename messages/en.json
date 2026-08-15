@@ -134,5 +134,14 @@
     "reviews": {
     "title": "Reviews",
     "subtitle": "Your opinion is very important to us"
+  },
+    "banner": {
+    "title": "Photographer in Samarkand — moments worth remembering",
+    "description": "Professional photography in Samarkand for weddings, family stories, portraits and unforgettable moments."
+  },
+    "PortfolioPage": {
+    "badge": "Portfolio",
+    "title": "My works",
+    "description": "A collection of moments, emotions and stories captured through my lens."
   }
 }

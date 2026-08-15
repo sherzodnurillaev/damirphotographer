@@ -21,10 +21,8 @@ export default function ReviewForm() {
       rating: "Оценка",
       send: "Оставить отзыв",
       sending: "Отправляем...",
-      success:
-        "Спасибо! Ваш отзыв отправлен на модерацию.",
-      error:
-        "Не удалось отправить отзыв.",
+      success: "Спасибо! Ваш отзыв отправлен на модерацию.",
+      error: "Не удалось отправить отзыв.",
     },
 
     en: {
@@ -35,8 +33,7 @@ export default function ReviewForm() {
       sending: "Sending...",
       success:
         "Thank you! Your review has been sent for moderation.",
-      error:
-        "Failed to send the review.",
+      error: "Failed to send the review.",
     },
 
     uz: {
@@ -47,12 +44,11 @@ export default function ReviewForm() {
       sending: "Yuborilmoqda...",
       success:
         "Rahmat! Fikringiz moderatsiyaga yuborildi.",
-      error:
-        "Fikrni yuborib bo‘lmadi.",
+      error: "Fikrni yuborib bo‘lmadi.",
     },
   };
 
-  const t = translations[locale];
+  const t = translations[locale] ?? translations.ru;
 
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>
@@ -87,7 +83,6 @@ export default function ReviewForm() {
       setName("");
       setText("");
       setRating(5);
-
     } catch (error) {
       console.error(error);
       setError(t.error);
@@ -101,22 +96,27 @@ export default function ReviewForm() {
       onSubmit={handleSubmit}
       className="
         mx-auto
+        w-full
         max-w-2xl
-        rounded-3xl
-        border
-        border-neutral-200
-        bg-white
-        p-6
-        shadow-sm
-        dark:border-neutral-800
-        dark:bg-neutral-900
-        md:p-10
+        min-w-0
+        bg-transparent
       "
     >
-
       {/* Name */}
-      <div>
-        <label className="mb-2 block font-medium">
+      <div className="min-w-0">
+        <label
+          className="
+            mb-3
+            block
+            font-[var(--font-manrope)]
+            text-[10px]
+            font-medium
+            uppercase
+            tracking-[0.2em]
+            text-neutral-500
+            dark:text-neutral-400
+          "
+        >
           {t.name}
         </label>
 
@@ -128,61 +128,107 @@ export default function ReviewForm() {
           maxLength={100}
           className="
             w-full
-            rounded-2xl
-            border
-            border-neutral-200
+            min-w-0
+            border-0
+            border-b
+            border-neutral-300
             bg-transparent
-            px-5
-            py-4
+            px-0
+            py-3
+            font-[var(--font-manrope)]
+            text-sm
+            text-neutral-900
             outline-none
-            focus:ring-2
-            focus:ring-black
+            transition-colors
+            duration-300
+            placeholder:text-neutral-400
+            focus:border-[rgb(93,87,81)]
+
             dark:border-neutral-700
-            dark:focus:ring-white
+            dark:text-white
+            dark:focus:border-white
+
+            sm:text-base
           "
         />
       </div>
 
       {/* Rating */}
-      <div className="mt-6">
-
-        <label className="mb-3 block font-medium">
+      <div className="mt-10">
+        <label
+          className="
+            mb-4
+            block
+            font-[var(--font-manrope)]
+            text-[10px]
+            font-medium
+            uppercase
+            tracking-[0.2em]
+            text-neutral-500
+            dark:text-neutral-400
+          "
+        >
           {t.rating}
         </label>
 
-        <div className="flex gap-2">
-
+        <div className="flex items-center gap-2">
           {[1, 2, 3, 4, 5].map((value) => (
-
             <button
               type="button"
               key={value}
               onClick={() => setRating(value)}
               aria-label={`${value} ${t.rating}`}
-              className={`
-                text-3xl
-                transition
+              className="
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                transition-transform
+                duration-200
                 hover:scale-110
-                ${
-                  value <= rating
-                    ? "opacity-100"
-                    : "opacity-30"
-                }
-              `}
+                active:scale-95
+                sm:h-10
+                sm:w-10
+              "
             >
-              ⭐
+              <span
+                className={`
+                  font-[var(--font-cormorant)]
+                  text-2xl
+                  leading-none
+                  transition-all
+                  duration-300
+                  sm:text-3xl
+                  ${
+                    value <= rating
+                      ? "text-[rgb(93,87,81)] dark:text-white"
+                      : "text-neutral-300 dark:text-neutral-700"
+                  }
+                `}
+              >
+                ★
+              </span>
             </button>
-
           ))}
-
         </div>
-
       </div>
 
       {/* Review */}
-      <div className="mt-6">
-
-        <label className="mb-2 block font-medium">
+      <div className="mt-10 min-w-0">
+        <label
+          className="
+            mb-3
+            block
+            font-[var(--font-manrope)]
+            text-[10px]
+            font-medium
+            uppercase
+            tracking-[0.2em]
+            text-neutral-500
+            dark:text-neutral-400
+          "
+        >
           {t.review}
         </label>
 
@@ -191,36 +237,61 @@ export default function ReviewForm() {
           onChange={(e) => setText(e.target.value)}
           required
           maxLength={1000}
-          rows={6}
+          rows={5}
           className="
             w-full
+            min-w-0
             resize-none
-            rounded-2xl
-            border
-            border-neutral-200
+            border-0
+            border-b
+            border-neutral-300
             bg-transparent
-            px-5
-            py-4
+            px-0
+            py-3
+            font-[var(--font-manrope)]
+            text-sm
+            leading-7
+            text-neutral-900
             outline-none
-            focus:ring-2
-            focus:ring-black
+            transition-colors
+            duration-300
+            focus:border-[rgb(93,87,81)]
+
             dark:border-neutral-700
-            dark:focus:ring-white
+            dark:text-white
+            dark:focus:border-white
+
+            sm:text-base
           "
         />
-
       </div>
 
       {/* Success */}
       {success && (
-        <p className="mt-5 text-green-600">
+        <p
+          className="
+            mt-5
+            font-[var(--font-manrope)]
+            text-sm
+            leading-6
+            text-green-600
+          "
+        >
           {success}
         </p>
       )}
 
       {/* Error */}
       {error && (
-        <p className="mt-5 text-red-500">
+        <p
+          className="
+            mt-5
+            font-[var(--font-manrope)]
+            text-sm
+            leading-6
+            text-red-500
+          "
+        >
           {error}
         </p>
       )}
@@ -230,24 +301,45 @@ export default function ReviewForm() {
         type="submit"
         disabled={loading}
         className="
-          mt-7
+          mt-10
+          inline-flex
           w-full
-          rounded-2xl
-          bg-black
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-neutral-900
+          bg-neutral-900
+          px-8
           py-4
-          font-semibold
+          font-[var(--font-manrope)]
+          text-xs
+          font-medium
+          uppercase
+          tracking-[0.2em]
           text-white
-          transition
-          hover:scale-[1.01]
+          transition-all
+          duration-300
+
+          hover:bg-transparent
+          hover:text-neutral-900
+
           active:scale-[0.98]
+
+          disabled:cursor-not-allowed
           disabled:opacity-50
+
+          dark:border-white
           dark:bg-white
-          dark:text-black
+          dark:text-neutral-900
+          dark:hover:bg-transparent
+          dark:hover:text-white
+
+          sm:py-5
         "
       >
         {loading ? t.sending : t.send}
       </button>
-
     </form>
   );
 }

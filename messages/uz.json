@@ -134,6 +134,15 @@
     "reviews": {
     "title": "Sharhlar",
     "subtitle": "Sizning fikringiz biz uchun juda muhim"
+  },
+    "banner": {
+    "title": "Samarqandda fotograf — eslab qolishga arziydigan lahzalar",
+    "description": "Samarqandda to‘ylar, oilaviy suratlar, portretlar va unutilmas lahzalar uchun professional fotosessiya."
+  },
+    "PortfolioPage": {
+    "badge": "Portfolio",
+    "title": "Mening ishlarim",
+    "description": "Obyektivim orqali suratga olingan lahzalar, his-tuyg‘ular va hikoyalar to‘plami."
   }
 
 }
