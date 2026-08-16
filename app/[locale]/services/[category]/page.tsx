@@ -15,82 +15,84 @@ interface Props {
   }>;
 }
 
+const siteUrl = "https://damirregistan.com";
+
 const seo = {
   ru: {
     meeting: {
-      title: "Фотограф в Самарканде — Встреча с фотографом | Damir Registan",
+      title: "Индивидуальная фотосессия в Самарканде — Damir Registan",
       description:
-        "Встреча с профессиональным фотографом в Самарканде. Обсудим идею фотосессии, выберем локацию и создадим красивые фотографии.",
+        "Индивидуальная фотосессия в Самарканде с профессиональным фотографом. Красивые локации, помощь с позированием и индивидуальный подход.",
     },
 
     lovestory: {
-      title: "Love Story фотосессия в Самарканде | Damir Registan",
+      title: "Love Story фотосессия в Самарканде — Damir Registan",
       description:
-        "Романтическая Love Story фотосессия в Самарканде. Естественные фотографии для пар, красивые локации и профессиональная съёмка.",
+        "Романтическая Love Story фотосессия в Самарканде. Съёмка для пар в красивых местах города и возле исторических достопримечательностей.",
     },
 
     family: {
-      title: "Семейный фотограф в Самарканде | Damir Registan",
+      title: "Семейный фотограф в Самарканде — Damir Registan",
       description:
-        "Семейная фотосессия в Самарканде с профессиональным фотографом. Тёплые, естественные фотографии вашей семьи в красивых локациях.",
+        "Семейная фотосессия в Самарканде с профессиональным фотографом. Тёплые семейные фотографии в красивых локациях города.",
     },
 
     national: {
-      title: "Фотосессия в национальных образах в Самарканде | Damir Registan",
+      title: "Фотосессия в национальных образах в Самарканде — Damir Registan",
       description:
-        "Профессиональная фотосессия в национальных образах в Самарканде. Красивые фотографии в традиционной одежде и атмосферных локациях города.",
+        "Фотосессия в национальных узбекских образах в Самарканде. Исторические локации, красивые фотографии и атмосфера древнего города.",
     },
   },
 
   en: {
     meeting: {
-      title: "Photographer in Samarkand — Meeting | Damir Registan",
+      title: "Individual Photoshoot in Samarkand — Damir Registan",
       description:
-        "Meet a professional photographer in Samarkand. Discuss your photoshoot idea, choose a beautiful location and create memorable photographs.",
+        "Professional individual photoshoot in Samarkand with beautiful locations, posing guidance and a personalized approach.",
     },
 
     lovestory: {
-      title: "Love Story Photoshoot in Samarkand | Damir Registan",
+      title: "Love Story Photoshoot in Samarkand — Damir Registan",
       description:
-        "Romantic Love Story photoshoot in Samarkand. Natural couple photography, beautiful locations and professional photography.",
+        "Romantic Love Story photoshoot in Samarkand for couples. Beautiful locations and historic landmarks around the city.",
     },
 
     family: {
-      title: "Family Photographer in Samarkand | Damir Registan",
+      title: "Family Photographer in Samarkand — Damir Registan",
       description:
-        "Professional family photoshoot in Samarkand. Warm and natural family photographs in beautiful locations around the city.",
+        "Professional family photoshoot in Samarkand. Warm family photographs in beautiful locations around the city.",
     },
 
     national: {
-      title: "National Costume Photoshoot in Samarkand | Damir Registan",
+      title: "Traditional Uzbek Photoshoot in Samarkand — Damir Registan",
       description:
-        "Professional photoshoot in traditional Uzbek costumes in Samarkand. Beautiful photographs in authentic outfits and atmospheric locations.",
+        "Traditional Uzbek costume photoshoot in Samarkand. Historic locations, beautiful photography and authentic atmosphere.",
     },
   },
 
   uz: {
     meeting: {
-      title: "Samarqandda fotograf — Uchrashuv | Damir Registan",
+      title: "Samarqandda individual fotosessiya — Damir Registan",
       description:
-        "Samarqandda professional fotograf bilan uchrashuv. Fotosessiya g‘oyasini muhokama qilamiz, chiroyli joy tanlaymiz va unutilmas suratlar yaratamiz.",
+        "Samarqandda professional fotograf bilan individual fotosessiya. Chiroyli joylar, pozaga yordam va individual yondashuv.",
     },
 
     lovestory: {
-      title: "Samarqandda Love Story fotosessiyasi | Damir Registan",
+      title: "Samarqandda Love Story fotosessiyasi — Damir Registan",
       description:
-        "Samarqandda romantik Love Story fotosessiyasi. Juftliklar uchun tabiiy suratlar, chiroyli lokatsiyalar va professional fotografiya.",
+        "Juftliklar uchun Samarqandda romantik Love Story fotosessiyasi. Shaharning chiroyli va tarixiy joylarida suratga tushish.",
     },
 
     family: {
-      title: "Samarqandda oilaviy fotograf | Damir Registan",
+      title: "Samarqandda oilaviy fotograf — Damir Registan",
       description:
-        "Samarqandda professional oilaviy fotosessiya. Oilangizning samimiy va iliq lahzalarini shaharning chiroyli joylarida suratga olamiz.",
+        "Samarqandda professional oilaviy fotosessiya. Shaharning chiroyli joylarida samimiy oilaviy suratlar.",
     },
 
     national: {
-      title: "Samarqandda milliy liboslarda fotosessiya | Damir Registan",
+      title: "Samarqandda milliy liboslarda fotosessiya — Damir Registan",
       description:
-        "Samarqandda milliy o‘zbek liboslarida professional fotosessiya. An’anaviy kiyimlar va shaharning go‘zal joylarida chiroyli suratlar.",
+        "Samarqandda o‘zbek milliy liboslarida fotosessiya. Tarixiy joylar, chiroyli suratlar va qadimiy shahar muhiti.",
     },
   },
 } as const;
@@ -100,38 +102,44 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const { locale, category } = await params;
 
-  const localeSeo =
-    seo[locale as keyof typeof seo];
-
-  const currentSeo =
-    localeSeo?.[category as keyof typeof localeSeo];
-
-  if (!currentSeo) {
+  if (!["ru", "en", "uz"].includes(locale)) {
     return {};
   }
 
-  const baseUrl = "https://damirregistan.com";
-  const url = `/${locale}/services/${category}`;
+  if (!["meeting", "lovestory", "family", "national"].includes(category)) {
+    return {};
+  }
+
+  const currentLocale = locale as "ru" | "en" | "uz";
+  const currentCategory =
+    category as "meeting" | "lovestory" | "family" | "national";
+
+  const currentSeo = seo[currentLocale][currentCategory];
+
+  const url = `${siteUrl}/${currentLocale}/services/${currentCategory}`;
 
   return {
+    metadataBase: new URL(siteUrl),
+
     title: currentSeo.title,
+
     description: currentSeo.description,
 
     alternates: {
       canonical: url,
 
       languages: {
-        ru: `/ru/services/${category}`,
-        en: `/en/services/${category}`,
-        uz: `/uz/services/${category}`,
-        "x-default": `/ru/services/${category}`,
+        ru: `${siteUrl}/ru/services/${currentCategory}`,
+        en: `${siteUrl}/en/services/${currentCategory}`,
+        uz: `${siteUrl}/uz/services/${currentCategory}`,
+        "x-default": `${siteUrl}/ru/services/${currentCategory}`,
       },
     },
 
     openGraph: {
       title: currentSeo.title,
       description: currentSeo.description,
-      url: `${baseUrl}${url}`,
+      url,
       siteName: "Damir Registan",
       type: "website",
     },
