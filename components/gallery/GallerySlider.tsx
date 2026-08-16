@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 interface GalleryImage {
   id: number | string;
@@ -14,246 +13,89 @@ interface Props {
 }
 
 export default function GallerySlider({ images }: Props) {
-  const [positions, setPositions] = useState<GalleryImage[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Первые 6 фотографий
-  useEffect(() => {
-    if (!images || images.length === 0) {
-      setPositions([]);
-      return;
-    }
-
-    setPositions(images.slice(0, 6));
-    setCurrentIndex(0);
-  }, [images]);
-
-  // Меняем одну фотографию каждые 2.5 секунды
-  useEffect(() => {
-    if (!images || images.length <= 6) {
-      return;
-    }
-
-    const interval = setInterval(() => {
-      setPositions((current) => {
-        if (current.length === 0) {
-          return current;
-        }
-
-        const next = [...current];
-
-        const position = currentIndex % 6;
-
-        const nextImage =
-          images[6 + currentIndex];
-
-        if (nextImage) {
-          next[position] = nextImage;
-        }
-
-        return next;
-      });
-
-      setCurrentIndex((prev) => {
-        const availableImages = images.length - 6;
-
-        if (availableImages <= 0) {
-          return 0;
-        }
-
-        return (prev + 1) % availableImages;
-      });
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, [images, currentIndex]);
-
-  if (!positions.length) {
+  if (!images || images.length === 0) {
     return null;
   }
 
+  const duplicatedImages = [...images, ...images];
+
   return (
-    <section
-      className="
-        w-full
-        py-10
+    <section className="w-full overflow-hidden py-10 sm:py-14 lg:py-20">
+      <div className="relative w-full overflow-hidden">
 
-        sm:py-14
-
-        lg:py-20
-      "
-    >
-      <div
-        className="
-          mx-auto
-          w-full
-          max-w-7xl
-
-          px-2
-          sm:px-5
-          lg:px-10
-        "
-      >
-
-        {/* DESKTOP */}
-
-        <div className="hidden lg:grid grid-cols-3 gap-5">
-          {positions.map((item, index) => (
-            <GalleryCard
-              key={index}
-              item={item}
-            />
-          ))}
-        </div>
-
-
-        {/* TABLET */}
-
-        <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4">
-          {positions.map((item, index) => (
-            <GalleryCard
-              key={index}
-              item={item}
-            />
-          ))}
-        </div>
-
-
-        {/* MOBILE */}
-
+        {/* Левая тень */}
         <div
           className="
-            grid
-            grid-cols-2
-            gap-1.5
-
-            sm:hidden
+            pointer-events-none
+            absolute
+            left-0
+            top-0
+            z-10
+            h-full
+            w-16
+            bg-gradient-to-r
+            from-white
+            to-transparent
+            dark:from-neutral-950
           "
-        >
-          {positions.map((item, index) => (
-            <GalleryCard
-              key={index}
-              item={item}
-            />
+        />
+
+        {/* Правая тень */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-0
+            top-0
+            z-10
+            h-full
+            w-16
+            bg-gradient-to-l
+            from-white
+            to-transparent
+            dark:from-neutral-950
+          "
+        />
+
+        {/* Бесконечная лента */}
+        <div className="gallery-infinite-track flex w-max gap-2 sm:gap-3 lg:gap-4">
+          {duplicatedImages.map((item, index) => (
+            <div
+              key={`${item.id}-${index}`}
+              className="
+                relative
+                h-[180px]
+                w-[260px]
+                shrink-0
+                overflow-hidden
+                rounded-[4px]
+
+                sm:h-[220px]
+                sm:w-[320px]
+                sm:rounded-xl
+
+                lg:h-[280px]
+                lg:w-[400px]
+                lg:rounded-2xl
+              "
+            >
+              <Image
+                src={item.image}
+                alt={item.alt ?? "Damir Registan photography"}
+                fill
+                unoptimized
+                sizes="400px"
+                className="
+                  object-cover
+                  transition-transform
+                  duration-700
+                  hover:scale-105
+                "
+              />
+            </div>
           ))}
         </div>
-
       </div>
     </section>
-  );
-}
-
-
-/* =====================================================
-   GALLERY CARD
-===================================================== */
-
-function GalleryCard({
-  item,
-}: {
-  item: GalleryImage;
-}) {
-  const [currentImage, setCurrentImage] =
-    useState(item.image);
-
-  const [nextImage, setNextImage] =
-    useState<string | null>(null);
-
-  const [isFading, setIsFading] =
-    useState(false);
-
-  useEffect(() => {
-    if (item.image === currentImage) {
-      return;
-    }
-
-    setNextImage(item.image);
-
-    requestAnimationFrame(() => {
-      setIsFading(true);
-    });
-
-    const timeout = setTimeout(() => {
-      setCurrentImage(item.image);
-      setNextImage(null);
-      setIsFading(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [item.image, currentImage]);
-
-  return (
-    <div
-      className="
-        relative
-        aspect-[4/3]
-        overflow-hidden
-
-        rounded-[4px]
-        sm:rounded-xl
-        lg:rounded-2xl
-
-        bg-neutral-100
-        dark:bg-neutral-900
-      "
-    >
-
-      {/* Current */}
-
-      <Image
-        src={currentImage}
-        alt={
-          item.alt ??
-          "Damir Registan photography"
-        }
-        fill
-        unoptimized
-        sizes="
-          (max-width: 640px) 50vw,
-          (max-width: 1024px) 50vw,
-          33vw
-        "
-        className="
-          object-cover
-        "
-      />
-
-
-      {/* Next */}
-
-      {nextImage && (
-        <Image
-          src={nextImage}
-          alt={
-            item.alt ??
-            "Damir Registan photography"
-          }
-          fill
-          unoptimized
-          sizes="
-            (max-width: 640px) 50vw,
-            (max-width: 1024px) 50vw,
-            33vw
-          "
-          className={`
-            absolute
-            inset-0
-            object-cover
-            transition-opacity
-            duration-[2000ms]
-            ease-in-out
-
-            ${
-              isFading
-                ? "opacity-100"
-                : "opacity-0"
-            }
-          `}
-        />
-      )}
-
-    </div>
   );
 }

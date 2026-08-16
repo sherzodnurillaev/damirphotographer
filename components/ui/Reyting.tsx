@@ -61,7 +61,7 @@ export default function Reyting() {
                 h-12
                 w-px
                 -translate-y-1/2
-                bg-white/20
+                bg-neutral-300 dark:bg-neutral-700
 
                 sm:-left-4
 
@@ -78,7 +78,7 @@ export default function Reyting() {
               font-medium
               leading-none
               tracking-[-0.02em]
-              text-white
+              text-neutral-600 dark:text-neutral-100
               transition-transform
               duration-300
 
@@ -100,7 +100,7 @@ export default function Reyting() {
               uppercase
               leading-5
               tracking-[0.15em]
-              text-white/60
+              text-neutral-500 dark:text-neutral-200
 
               sm:text-xs
               sm:tracking-[0.18em]

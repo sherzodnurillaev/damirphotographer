@@ -19,8 +19,6 @@ export default function MainColorPage() {
     async function loadGallery() {
       const data = await getGallery();
 
-      console.log(data);
-
       setGallery(data);
     }
 

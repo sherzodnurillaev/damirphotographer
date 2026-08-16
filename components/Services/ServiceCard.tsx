@@ -214,7 +214,7 @@ export default function ServiceCard({
             sm:dark:hover:bg-transparent
           "
         >
-          Подробнее
+          {t("details")}
 
           <ArrowRight
             size={16}

@@ -2,10 +2,65 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+.gallery-marquee {
+  animation: gallery-scroll 80s linear infinite;
+  will-change: transform;
+}
+
+@keyframes gallery-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-marquee {
+    animation-duration: 65s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-marquee {
+    animation: none;
+  }
+}
+
+
 :root {
 
 }
 
 .dark {
 
+}
+
+.gallery-infinite-track {
+  animation: gallery-infinite-scroll 80s linear infinite;
+  will-change: transform;
+}
+
+@keyframes gallery-infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-infinite-track {
+    animation-duration: 65s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-infinite-track {
+    animation: none;
+  }
 }

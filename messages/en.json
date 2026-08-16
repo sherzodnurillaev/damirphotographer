@@ -92,7 +92,7 @@
   "services": "Services",
   "faq": "FAQ",
   "contacts": "Contacts",
-  "city": "Moscow",
+  "city": "Samarkand",
   "rights": "All rights reserved.",
   "developed": "Designed & Developed by"
 },
@@ -129,11 +129,13 @@
     "phone": "Phone"
   },
   "services": {
-    "price": "Price"
+    "price": "Price",
+    "details": "Learn more"
   },
     "reviews": {
     "title": "Reviews",
-    "subtitle": "Your opinion is very important to us"
+    "subtitle": "Your opinion is very important to us",
+  "button": "Leave a review"
   },
     "banner": {
     "title": "Photographer in Samarkand — moments worth remembering",

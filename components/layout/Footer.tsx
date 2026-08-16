@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function Footer() {
   const t = useTranslations('Footer');
   const locale = useLocale();
 
   return (
-    <footer className="mt-16 bg-[rgb(93,87,81)] text-white sm:mt-20">
+    <footer className="bg-[rgb(93,87,81)] text-white sm:mt-20">
       <div
         className="
           mx-auto
@@ -39,15 +40,34 @@ export default function Footer() {
           {/* Logo / Description */}
           <div className="text-center md:text-left">
 
-            <h2
-              className="
-                text-2xl
-                font-bold
-                sm:text-3xl
-              "
-            >
-              Damir Registan
-            </h2>
+            <Link
+  href={`/${locale}`}
+  className="
+    inline-flex
+    items-center
+    gap-3
+    transition-opacity
+    hover:opacity-80
+  "
+>
+  <Image
+    src="/logo/logo.png"
+    alt="Damir Registan"
+    width={75}
+    height={75}
+    className="object-contain"
+  />
+
+  <h2
+    className="
+      text-2xl
+      font-bold
+      sm:text-3xl
+    "
+  >
+    Damir Registan
+  </h2>
+</Link>
 
             <p
               className="
@@ -101,13 +121,6 @@ export default function Footer() {
               </Link>
 
               <Link
-                href={`/${locale}/about`}
-                className="transition hover:text-white"
-              >
-                {t('about')}
-              </Link>
-
-              <Link
                 href={`/${locale}/portfolio`}
                 className="transition hover:text-white"
               >
@@ -119,13 +132,6 @@ export default function Footer() {
                 className="transition hover:text-white"
               >
                 {t('services')}
-              </Link>
-
-              <Link
-                href={`/${locale}/faq`}
-                className="transition hover:text-white"
-              >
-                {t('faq')}
               </Link>
 
               <Link

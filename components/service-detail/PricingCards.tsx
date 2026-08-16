@@ -211,12 +211,12 @@ export default function PricingCards({
                   <span
                     className="
                       font-[var(--font-cormorant)]
-                      text-5xl
+                      text-3xl
                       font-medium
                       leading-none
                       text-neutral-900
                       dark:text-white
-                      sm:text-6xl
+                      sm:text-4xl
                     "
                   >
                     ${item.price}
@@ -273,38 +273,45 @@ export default function PricingCards({
               </div>
 
               {/* Button */}
-              <button
-                type="button"
-                className="
-                  mt-10
-                  w-full
-                  rounded-full
-                  border
-                  border-neutral-900
-                  bg-neutral-900
-                  px-6
-                  py-4
-                  font-[var(--font-manrope)]
-                  text-xs
-                  font-medium
-                  uppercase
-                  tracking-[0.18em]
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:bg-transparent
-                  hover:text-neutral-900
-                  active:scale-[0.98]
+<a
+  href={`https://wa.me/998901234567?text=${encodeURIComponent(
+    "Здравствуйте! Хочу заказать услугу фотографа."
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    mt-10
+    flex
+    w-full
+    items-center
+    justify-center
+    rounded-full
+    border
+    border-neutral-900
+    bg-neutral-900
+    px-6
+    py-4
+    font-[var(--font-manrope)]
+    text-xs
+    font-medium
+    uppercase
+    tracking-[0.18em]
+    text-white
+    transition-all
+    duration-300
+    hover:bg-transparent
+    hover:text-neutral-900
+    active:scale-[0.98]
 
-                  dark:border-white
-                  dark:bg-white
-                  dark:text-neutral-900
-                  dark:hover:bg-transparent
-                  dark:hover:text-white
-                "
-              >
-                {t.button}
-              </button>
+    dark:border-white
+    dark:bg-white
+    dark:text-neutral-900
+    dark:hover:bg-transparent
+    dark:hover:text-white
+  "
+>
+  {t.button}
+</a>
             </div>
           ))}
         </div>

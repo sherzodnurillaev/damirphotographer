@@ -8,6 +8,7 @@ import ThemeToggle from "../ui/SwitchTheme";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
+import Image from "next/image";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -57,9 +58,19 @@ export default function Header() {
         "
       >
 
-        <h1 className="text-xl font-bold">
-          Damir Registan
-        </h1>
+        <Link
+  href="/"
+  aria-label="Damir Registan — главная"
+  className="shrink-0"
+>
+   <Image
+          src="/logo/logo.png"
+          alt="Damir Registan"
+          width={75}
+          height={75}
+          className="object-contain"
+        />
+</Link>
 
         {/* Desktop */}
         <nav className="hidden md:flex items-center gap-8">

@@ -92,7 +92,7 @@
   "services": "Xizmatlar",
   "faq": "FAQ",
   "contacts": "Kontaktlar",
-  "city": "Moskva",
+  "city": "Samarqand",
   "rights": "Barcha huquqlar himoyalangan.",
   "developed": "Loyiha muallifi"
 },
@@ -129,11 +129,13 @@
     "phone": "Telefon"
   },
     "services": {
-    "price": "Narxi"
+    "price": "Narxi",
+    "details": "Batafsil"
   },
     "reviews": {
     "title": "Sharhlar",
-    "subtitle": "Sizning fikringiz biz uchun juda muhim"
+    "subtitle": "Sizning fikringiz biz uchun juda muhim",
+  "button": "Fikr qoldirish"
   },
     "banner": {
     "title": "Samarqandda fotograf — eslab qolishga arziydigan lahzalar",

@@ -8,7 +8,7 @@ export default function AboutBlock() {
   const t = useTranslations("About");
 
   return (
-    <section className="bg-[#c1a388] px-5 py-16 sm:px-8 sm:py-20 md:px-10 lg:px-16 lg:py-28">
+    <section className="px-5 py-16 sm:px-8 sm:py-20 md:px-10 lg:px-16 lg:py-28">
       
       {/* Основной блок */}
       <div
@@ -36,7 +36,7 @@ export default function AboutBlock() {
         >
           {/* Маленький акцент */}
           <div className="mb-5 flex items-center justify-center gap-3 md:justify-start">
-            <span className="h-px w-10 bg-white/60" />
+            <span className="bg-neutral-300 dark:bg-neutral-700 h-px w-10 " />
 
             <span
               className="
@@ -45,7 +45,7 @@ export default function AboutBlock() {
                 font-medium
                 uppercase
                 tracking-[0.3em]
-                text-white/70
+                text-neutral-600 dark:text-neutral-100
                 sm:text-xs
               "
             >
@@ -61,7 +61,7 @@ export default function AboutBlock() {
               font-medium
               leading-[0.95]
               tracking-[-0.02em]
-              text-white
+
               sm:text-5xl
               lg:text-7xl
             "
@@ -70,7 +70,7 @@ export default function AboutBlock() {
           </h2>
 
           {/* Декоративная линия */}
-          <div className="mx-auto my-6 h-px w-16 bg-white/40 md:mx-0" />
+          <div className="mx-auto my-6 h-px w-16 bg-neutral-300 dark:bg-neutral-700 md:mx-0" />
 
           {/* Описание */}
           <p
@@ -81,7 +81,7 @@ export default function AboutBlock() {
               font-light
               leading-7
               tracking-wide
-              text-white/75
+
               sm:text-base
               sm:leading-8
               lg:text-lg
@@ -137,7 +137,7 @@ export default function AboutBlock() {
           w-full
           max-w-[760px]
           border-t
-          border-white/20
+          border-neutral-300 dark:border-neutral-700
           pt-10
           sm:mt-24
           sm:pt-12

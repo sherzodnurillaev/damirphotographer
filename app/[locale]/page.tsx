@@ -4,21 +4,31 @@ import Services from '@/components/MainPage/CardForService';
 import Banner from '@/components/MainPage/FirstBlock';
 import Process from '@/components/MainPage/ProcessSection';
 import Emotion from '@/components/MainPage/SecondBlock';
-import SectionFaq from '@/components/MainPage/SectionFaq';
 import Advantages from '@/components/MainPage/WhyMeSection';
 import SwipperPage from '@/components/gallery/SwipperComp';
+import { getReviews } from '@/lib/reviews';
+import ReviewsPage from './reviews/page';
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import SeoBlock from '@/components/MainPage/SeoBlock';
+import StructuredData from '@/components/seo/StructuredData';
 
-export default function Home() {
+export default async function Home() {
+  const reviews = await getReviews();
   return (
-    <main className="max-w-[1260px] mx-auto pt-[100px]">
+    <main className=" pt-[100px]">
+        <StructuredData />
+        
         <Banner />
         <SwipperPage />
         <Emotion />
-        <AboutBlock />
-        <Process />
         <Services />
+        <AboutBlock />
+        <ReviewsPage />
+        <Process />
         <Advantages />
-        {/* <SectionFaq /> */}
+
+        <ScrollToTop />
+        <SeoBlock />
     </main>
   );
 }
