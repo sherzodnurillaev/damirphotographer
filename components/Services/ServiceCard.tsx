@@ -32,45 +32,47 @@ export default function ServiceCard({
       "
     >
       {/* Фото */}
-      <div
-        className="
-          relative
-          h-[180px]
-          overflow-hidden
-          sm:h-[240px]
-          md:h-[280px]
-          lg:h-[320px]
-        "
-      >
-        <Image
-          src={service.image}
-          alt={service.title[locale]}
-          unoptimized
-          fill
-          sizes="
-            (max-width: 640px) 50vw,
-            (max-width: 768px) 50vw,
-            (max-width: 1024px) 50vw,
-            33vw
-          "
-          className="
-            object-cover
-            transition-transform
-            duration-700
-            group-hover:scale-110
-          "
-        />
+      {/* Фото */}
+<div
+  className="
+    relative
+    h-[285px]
+    overflow-hidden
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-black/20
-            transition
-            group-hover:bg-black/35
-          "
-        />
-      </div>
+    sm:h-[295px]
+    md:h-[305px]
+    lg:h-[320px]
+  "
+>
+  <Image
+    src={service.image}
+    alt={service.title[locale]}
+    unoptimized
+    fill
+    sizes="
+      (max-width: 640px) 100vw,
+      (max-width: 768px) 50vw,
+      (max-width: 1024px) 50vw,
+      33vw
+    "
+    className="
+      object-cover
+      transition-transform
+      duration-700
+      group-hover:scale-110
+    "
+  />
+
+  <div
+    className="
+      absolute
+      inset-0
+      bg-black/20
+      transition
+      group-hover:bg-black/35
+    "
+  />
+</div>
 
       {/* Контент */}
       <div

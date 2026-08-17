@@ -16,6 +16,10 @@ export default function PortfolioFilter({
 
   const categories = [
     {
+      id: "national",
+      label: t("national"),
+    },
+    {
       id: "family",
       label: t("family"),
     },
@@ -34,10 +38,6 @@ export default function PortfolioFilter({
     {
       id: "photoday",
       label: t("photoday"),
-    },
-    {
-      id: "national",
-      label: t("national"),
     },
   ];
 

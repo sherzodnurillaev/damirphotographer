@@ -197,7 +197,7 @@ export default function Contact() {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/998951380120"
+              href="https://wa.me/89270100094"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -293,7 +293,7 @@ export default function Contact() {
 
             {/* MAX */}
             <a
-              href="https://max.ru/"
+              href="https://max.ru/87080156095"
               target="_blank"
               rel="noopener noreferrer"
               className="

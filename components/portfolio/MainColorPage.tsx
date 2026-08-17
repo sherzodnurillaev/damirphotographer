@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 export default function MainColorPage() {
   const t = useTranslations("PortfolioPage");
 
-  const [category, setCategory] = useState("family");
+  const [category, setCategory] = useState("national");
   const [color, setColor] = useState("blue");
   const [gallery, setGallery] = useState<GalleryItem[]>([]);
 
