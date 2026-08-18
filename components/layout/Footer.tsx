@@ -10,13 +10,13 @@ export default function Footer() {
   const locale = useLocale();
 
   return (
-    <footer className="bg-[rgb(93,87,81)] text-white sm:mt-20">
+    <footer className="bg-[rgb(93,87,81)] text-white">
       <div
         className="
           mx-auto
           max-w-[1260px]
           px-5
-          py-10
+          py-5
           sm:px-8
           sm:py-12
           lg:px-10
@@ -24,207 +24,15 @@ export default function Footer() {
         "
       >
 
-        {/* Main content */}
         <div
           className="
-            grid
-            grid-cols-1
-            gap-10
-            sm:gap-12
-            md:grid-cols-3
-            md:gap-8
-            lg:gap-16
-          "
-        >
-
-          {/* Logo / Description */}
-          <div className="text-center md:text-left">
-
-            <Link
-  href={`/${locale}`}
-  className="
-    inline-flex
-    items-center
-    gap-3
-    transition-opacity
-    hover:opacity-80
-  "
->
-  <Image
-    src="/logo/logo.png"
-    alt="Damir Registan"
-    width={75}
-    height={75}
-    className="object-contain"
-  />
-
-  <h2
-    className="
-      text-2xl
-      font-bold
-      sm:text-3xl
-    "
-  >
-    Damir Registan
-  </h2>
-</Link>
-
-            <p
-              className="
-                mx-auto
-                mt-4
-                max-w-sm
-                text-sm
-                leading-7
-                text-white/70
-                sm:text-base
-                md:mx-0
-              "
-            >
-              {t('description')}
-            </p>
-
-          </div>
-
-          {/* Navigation */}
-          <div className="text-center md:text-left">
-
-            <h3
-              className="
-                mb-4
-                text-lg
-                font-semibold
-                sm:mb-5
-              "
-            >
-              {t('navigation')}
-            </h3>
-
-            <nav
-              className="
-                flex
-                flex-col
-                items-center
-                gap-3
-                text-sm
-                text-white/70
-                sm:text-base
-                md:items-start
-              "
-            >
-
-              <Link
-                href={`/${locale}`}
-                className="transition hover:text-white"
-              >
-                {t('home')}
-              </Link>
-
-              <Link
-                href={`/${locale}/portfolio`}
-                className="transition hover:text-white"
-              >
-                {t('portfolio')}
-              </Link>
-
-              <Link
-                href={`/${locale}/services`}
-                className="transition hover:text-white"
-              >
-                {t('services')}
-              </Link>
-
-              <Link
-                href={`/${locale}/contacts`}
-                className="transition hover:text-white"
-              >
-                {t('contacts')}
-              </Link>
-
-            </nav>
-
-          </div>
-
-          {/* Contacts */}
-          <div className="text-center md:text-left">
-
-            <h3
-              className="
-                mb-4
-                text-lg
-                font-semibold
-                sm:mb-5
-              "
-            >
-              {t('contacts')}
-            </h3>
-
-            <div
-              className="
-                flex
-                flex-col
-                items-center
-                gap-4
-                text-sm
-                text-white/70
-                sm:text-base
-                md:items-start
-              "
-            >
-
-              {/* Phone */}
-              <a
-                href="tel:+998951380120"
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  transition
-                  hover:text-white
-                "
-              >
-                <Phone size={18} />
-                <span>+998 95 138-01-20</span>
-              </a>
-
-              {/* Email */}
-              <a
-                href="mailto:info@mail.com"
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  transition
-                  hover:text-white
-                "
-              >
-                <Mail size={18} />
-                <span>info@mail.com</span>
-              </a>
-
-              {/* City */}
-              <div className="flex items-center gap-3">
-                <MapPin size={18} />
-                <span>{t('city')}</span>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Bottom */}
-        <div
-          className="
-            mt-10
             flex
             flex-col
             items-center
             gap-3
             border-t
             border-white/10
-            pt-6
+            pt-2
             text-center
             text-xs
             text-white/60

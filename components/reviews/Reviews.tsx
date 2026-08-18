@@ -50,6 +50,8 @@ export default function Reviews({ reviews }: Props) {
     <section
       className="
         w-full
+        max-w-full
+        overflow-hidden
         px-5
         py-20
 
@@ -60,7 +62,7 @@ export default function Reviews({ reviews }: Props) {
         lg:py-28
       "
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="mx-auto w-full max-w-7xl min-w-0">
 
         {/* Header */}
         <div
@@ -172,20 +174,22 @@ export default function Reviews({ reviews }: Props) {
           <div
             className="
               mt-16
-              grid
-              grid-cols-1
-              gap-px
-              overflow-hidden
-              border
-              border-neutral-200
-              bg-neutral-200
+              flex
+              w-full
+              min-w-0
+              max-w-full
+              gap-4
+              overflow-x-auto
+              overflow-y-hidden
+              pb-6
 
-              dark:border-neutral-800
-              dark:bg-neutral-800
+              snap-x
+              snap-mandatory
+
+              scrollbar-hide
 
               sm:mt-20
-              md:grid-cols-2
-              lg:grid-cols-3
+              sm:gap-5
             "
           >
             {reviews.map((review) => (
@@ -194,9 +198,16 @@ export default function Reviews({ reviews }: Props) {
                 className="
                   group
                   flex
-                  h-full
+                  w-[85%]
+                  min-w-[85%]
+                  max-w-[85%]
                   min-w-0
+                  flex-shrink-0
+                  snap-center
                   flex-col
+
+                  border
+                  border-neutral-200
                   bg-white
                   p-7
 
@@ -205,15 +216,23 @@ export default function Reviews({ reviews }: Props) {
 
                   hover:bg-neutral-50
 
+                  dark:border-neutral-800
                   dark:bg-neutral-950
                   dark:hover:bg-neutral-900
 
+                  sm:w-[60%]
+                  sm:min-w-[60%]
+                  sm:max-w-[60%]
                   sm:p-9
+
+                  lg:w-[calc(33.333%-14px)]
+                  lg:min-w-[calc(33.333%-14px)]
+                  lg:max-w-[calc(33.333%-14px)]
                   lg:p-10
                 "
               >
                 {/* Stars */}
-                <div className="flex items-center gap-1">
+                <div className="flex shrink-0 items-center gap-1">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <Star
                       key={index}
@@ -229,7 +248,7 @@ export default function Reviews({ reviews }: Props) {
                 </div>
 
                 {/* Quote */}
-                <div className="mt-8 flex-1">
+                <div className="mt-8 min-w-0 flex-1">
                   <span
                     className="
                       font-[var(--font-cormorant)]
@@ -245,7 +264,11 @@ export default function Reviews({ reviews }: Props) {
                   <p
                     className="
                       -mt-2
+                      min-w-0
+                      max-w-full
                       break-words
+                      overflow-hidden
+
                       font-[var(--font-cormorant)]
                       text-2xl
                       font-medium
@@ -264,6 +287,7 @@ export default function Reviews({ reviews }: Props) {
                 <div
                   className="
                     mt-10
+                    min-w-0
                     border-t
                     border-neutral-200
                     pt-5
@@ -273,7 +297,10 @@ export default function Reviews({ reviews }: Props) {
                 >
                   <p
                     className="
+                      min-w-0
+                      max-w-full
                       truncate
+
                       font-[var(--font-manrope)]
                       text-xs
                       font-semibold
@@ -303,7 +330,6 @@ export default function Reviews({ reviews }: Props) {
             ))}
           </div>
         )}
-
       </div>
     </section>
   );

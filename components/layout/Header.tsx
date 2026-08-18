@@ -51,7 +51,7 @@ export default function Header() {
           justify-between
           px-6
           md:px-12
-          py-5
+          py-2
           text-white
           rounded-b-md
         "
@@ -63,7 +63,7 @@ export default function Header() {
   className="shrink-0"
 >
    <Image
-          src="/logo/logo.png"
+          src="/DR.png"
           alt="Damir Registan"
           width={75}
           height={75}

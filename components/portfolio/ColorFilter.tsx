@@ -35,6 +35,11 @@ export default function ColorFilter({
       color: "#EC4899",
       label: t("pink"),
     },
+    {
+      id: "yellow",
+      color: "#FACC15",
+      label: t("yellow"),
+    },
   ];
 
   return (

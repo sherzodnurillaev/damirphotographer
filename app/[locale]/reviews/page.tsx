@@ -10,7 +10,7 @@ export default async function ReviewsPage() {
   const reviews = await getReviews();
 
   return (
-    <main
+    <section
       className="
         w-full
         overflow-hidden
@@ -105,6 +105,6 @@ export default async function ReviewsPage() {
         <ReviewForm />
       </section>
       <ReviewButton />
-    </main>
+    </section>
   );
 }
