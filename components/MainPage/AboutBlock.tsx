@@ -108,7 +108,7 @@ export default function AboutBlock() {
           />
 
           <Image
-            src="/pictures/damir.jpeg"
+            src="/pictures/aboutDamir.PNG"
             width={500}
             height={500}
             unoptimized

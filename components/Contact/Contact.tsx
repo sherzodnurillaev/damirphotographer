@@ -63,7 +63,7 @@ export default function Contact() {
             "
           >
             <Image
-              src="/pictures/damir.jpeg"
+              src="/pictures/aboutDamir.PNG"
               alt="Damir Registan — фотограф"
               width={450}
               height={600}
@@ -79,10 +79,8 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Contact */}
         <div className="w-full min-w-0">
 
-          {/* Small label */}
           <span
             className="
               text-[11px]
