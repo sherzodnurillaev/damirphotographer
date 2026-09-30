@@ -274,7 +274,7 @@ export default function PricingCards({
 
               {/* Button */}
 <a
-  href={`https://wa.me/998901234567?text=${encodeURIComponent(
+  href={`https://wa.me/+79270100094?text=${encodeURIComponent(
     "Здравствуйте! Хочу заказать услугу фотографа."
   )}`}
   target="_blank"

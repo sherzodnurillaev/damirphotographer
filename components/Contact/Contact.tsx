@@ -12,6 +12,10 @@ import {
 export default function Contact() {
   const t = useTranslations("contact");
 
+  const message = encodeURIComponent(
+    "Здравствуйте! Хочу узнать подробнее о ваших услугах."
+  );
+
   return (
     <section
       className="
@@ -195,7 +199,8 @@ export default function Contact() {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/89270100094"
+              // href="https://wa.me/+79270100094"
+              href={`https://wa.me/+79270100094?text=${message}`}
               target="_blank"
               rel="noopener noreferrer"
               className="
