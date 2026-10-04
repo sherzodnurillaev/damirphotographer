@@ -1,6 +1,9 @@
 "use client";
 
+
 import { Check } from "lucide-react";
+import { useState } from "react";
+import ContactModal from "./ContactModal";
 import { useLocale } from "next-intl";
 
 interface Props {
@@ -11,6 +14,8 @@ export default function PricingCards({
   packages,
 }: Props) {
   const locale = useLocale() as "ru" | "en" | "uz";
+
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const t = {
     ru: {
@@ -228,7 +233,8 @@ export default function PricingCards({
               <div className="my-8 h-px bg-neutral-200 dark:bg-neutral-800" />
 
               {/* Features */}
-              <div className="flex-1 space-y-5">
+              {/* Смотри тут комент последней фичи, там карточка брони */}
+              {/* <div className="flex-1 space-y-5">
                 {item.description[locale]
                   .split("\n")
                   .map((feature: string, featureIndex: number) => (
@@ -270,10 +276,10 @@ export default function PricingCards({
                       </span>
                     </div>
                   ))}
-              </div>
+              </div> */}
 
               {/* Button */}
-<a
+{/* <a
   href={`https://wa.me/+79270100094?text=${encodeURIComponent(
     "Здравствуйте! Хочу заказать услугу фотографа."
   )}`}
@@ -311,11 +317,53 @@ export default function PricingCards({
   "
 >
   {t.button}
-</a>
+</a> */}
+
+<button
+  type="button"
+  onClick={() => setContactModalOpen(true)}
+  className="
+    mt-10
+    flex
+    w-full
+    items-center
+    justify-center
+    rounded-full
+    border
+    border-neutral-900
+    bg-neutral-900
+    px-6
+    py-4
+    font-[var(--font-manrope)]
+    text-xs
+    font-medium
+    uppercase
+    tracking-[0.18em]
+    text-white
+    transition-all
+    duration-300
+    hover:bg-transparent
+    hover:text-neutral-900
+    active:scale-[0.98]
+
+    dark:border-white
+    dark:bg-white
+    dark:text-neutral-900
+    dark:hover:bg-transparent
+    dark:hover:text-white
+  "
+>
+  {t.button}
+</button>
             </div>
           ))}
         </div>
       </div>
+
+      <ContactModal
+  open={contactModalOpen}
+  onClose={() => setContactModalOpen(false)}
+/>
     </section>
   );
 }

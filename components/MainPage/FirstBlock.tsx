@@ -1,9 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 export default function Banner() {
   const t = useTranslations("banner");
+
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 4000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <section
@@ -13,24 +24,117 @@ export default function Banner() {
         min-h-[500px]
         overflow-hidden
         rounded-[4px]
+        bg-neutral-200
         sm:h-[500px]
         md:h-screen
+        dark:bg-neutral-900
       "
     >
-      {/* Видео */}
+
+      {!videoLoaded && (
+        <div
+          className="
+            absolute
+            inset-0
+            z-[1]
+            animate-pulse
+            bg-neutral-200
+            dark:bg-neutral-900
+          "
+          aria-hidden="true"
+        >
+          {/* Центральный skeleton */}
+          <div
+            className="
+              absolute
+              inset-0
+              flex
+              flex-col
+              items-center
+              justify-center
+              px-5
+            "
+          >
+            {/* Маленькая подпись */}
+            <div
+              className="
+                h-3
+                w-28
+                rounded-full
+                bg-neutral-300
+                dark:bg-neutral-800
+              "
+            />
+
+            {/* Заголовок */}
+            <div
+              className="
+                mt-7
+                h-12
+                w-[70%]
+                max-w-2xl
+                rounded-lg
+                bg-neutral-300
+                dark:bg-neutral-800
+                sm:h-16
+              "
+            />
+
+            {/* Описание */}
+            <div
+              className="
+                mt-7
+                h-4
+                w-[55%]
+                max-w-xl
+                rounded-full
+                bg-neutral-300
+                dark:bg-neutral-800
+              "
+            />
+
+            <div
+              className="
+                mt-3
+                h-4
+                w-[40%]
+                max-w-md
+                rounded-full
+                bg-neutral-300
+                dark:bg-neutral-800
+              "
+            />
+          </div>
+        </div>
+      )}
+
+      {/* =========================
+          VIDEO
+      ========================== */}
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
-        className="
+        poster="/images/banner-poster.webp"
+        onLoadedData={() => setVideoLoaded(true)}
+        onCanPlay={() => setVideoLoaded(true)}
+        className={`
           absolute
           inset-0
           h-full
           w-full
           object-cover
-        "
+          transition-opacity
+          duration-1000
+          ease-out
+          ${
+            videoLoaded
+              ? "opacity-100"
+              : "opacity-0"
+          }
+        `}
       >
         <source
           src="/videos/26851462-929f-4c2e-9fbe-8e0e4af03034.mp4"
@@ -38,10 +142,21 @@ export default function Banner() {
         />
       </video>
 
-      {/* Затемнение */}
-      <div className="absolute inset-0 bg-black/45" />
+      {/* =========================
+          OVERLAY
+      ========================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          z-[2]
+          bg-black/45
+        "
+      />
 
-      {/* Контент */}
+      {/* =========================
+          CONTENT
+      ========================== */}
       <div
         className="
           relative
@@ -80,7 +195,7 @@ export default function Banner() {
 
         {/* Заголовок */}
         <h1
-        className="
+          className="
             max-w-4xl
             font-[var(--font-cormorant)]
             text-4xl
@@ -91,9 +206,9 @@ export default function Banner() {
             md:text-3xl
             lg:text-5xl
             xl:text-7xl
-        "
+          "
         >
-        {t("title")}
+          {t("title")}
         </h1>
 
         {/* Описание */}

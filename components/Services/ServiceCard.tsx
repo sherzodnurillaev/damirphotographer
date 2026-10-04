@@ -131,7 +131,6 @@ export default function ServiceCard({
             sm:justify-between
           "
         >
-          {/* Длительность */}
           <div
             className="
               flex
